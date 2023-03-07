@@ -81,8 +81,9 @@ export const checkAdmin = async () => {
   }
 };
 
-export const renderClientSideComponent = () => {
+export const headerFooterComponent = () => {
   const headerEl = document.querySelector("#header");
+  const footerEl = document.querySelector("#footer");
 
   if (headerEl) {
     const header = fetch("../headerFooter/header.html");
@@ -100,4 +101,15 @@ export const renderClientSideComponent = () => {
         document.body.appendChild(script);
       });
   }
+
+  if (footerEl) {
+    const footer = fetch("../headerFooter/footer.html");
+    footer
+      .then((res) => res.text())
+      .then((text) => {
+        document.querySelector("#footer").innerHTML = text;
+      });
+  }
 };
+
+export const footerComponent = () => {};

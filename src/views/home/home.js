@@ -1,7 +1,7 @@
 import * as Api from "/api.js";
-import { checkLogin, renderClientSideComponent } from "../useful-functions.js";
+import { checkLogin, headerFooterComponent } from "../useful-functions.js";
 
-renderClientSideComponent();
+// headerFooterComponent();
 
 const productList = document.querySelector(".section_box");
 const token = sessionStorage.getItem("token");
@@ -113,3 +113,37 @@ async function insertProductElement() {
     }
   });
 }
+
+window.addEventListener("load", async () => {
+  const admin = document.querySelector("#admin");
+  const user = document.querySelector("#user");
+  const guest = document.querySelector("#guest");
+
+  const token = sessionStorage.getItem("token");
+  if (token) {
+    const res = await fetch("/api/admin/check", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const { result } = await res.json();
+
+    if (result === "success") {
+      admin.classList.remove("hidden");
+      user.classList.add("hidden");
+      guest.classList.add("hidden");
+
+      return;
+    } else {
+      user.classList.remove("hidden");
+      guest.classList.add("hidden");
+      admin.classList.add("hidden");
+      return;
+    }
+  }
+
+  guest.classList.remove("hidden");
+  user.classList.add("hidden");
+  admin.classList.add("hidden");
+});

@@ -1,3 +1,6 @@
+import { change } from "../home/changeHeader.js";
+
+change();
 const body = document.querySelector(".body");
 
 window.addEventListener("load", () => {
