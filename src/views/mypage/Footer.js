@@ -4,7 +4,6 @@ window.onload = () => {
   main.insertAdjacentHTML(
     "beforeEnd",
     `
-  <footer class="footer">
   <address class="address_left">
     <ul class="addressLink">
       <li>
@@ -42,7 +41,6 @@ window.onload = () => {
       1:1 문의하기는 앱에서만 가능합니다.
     </p>
   </address>
-</footer>
   `
   );
 };

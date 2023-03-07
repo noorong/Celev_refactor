@@ -27,42 +27,39 @@ export const convertToNumber = (string) => {
 export const wait = (ms) => {
   return new Promise((r) => setTimeout(r, ms));
 };
- 
+
 // 현재 날짜 YYYYMMDD로 출력
-export const getToday =()=> {
+export const getToday = () => {
   var date = new Date();
   var year = date.getFullYear();
   var month = ("0" + (1 + date.getMonth())).slice(-2);
   var day = ("0" + date.getDate()).slice(-2);
 
   return year + month + day;
-}
-
+};
 
 // 로그인 여부(토큰 존재 여부 확인) 확인
 export const checkLogin = () => {
   const token = sessionStorage.getItem("token");
-  if(!token) {
-
+  if (!token) {
     //현재 주소 url 추출
-    const pathname = window.location.pathname;
-    const search = window.location.search
-
-    //언제든지 로그인 후 원래 페이지로 이동하기 위함
-    window.location.replace(`/login?previouspage=${pathname+search}`);
-  } 
-};
-
-//관리자 여부 확인
-export const checkAdmin = async ()=> {
-
-  window.document.body.style.display = "none"; //화면 가리고 시작
-  const token = sessionStorage.getItem("token");
-  if(!token) {
     const pathname = window.location.pathname;
     const search = window.location.search;
 
-    window.location.replace(`/login?previouspage=${pathname+search}`);
+    //언제든지 로그인 후 원래 페이지로 이동하기 위함
+    window.location.replace(`/login?previouspage=${pathname + search}`);
+  }
+};
+
+//관리자 여부 확인
+export const checkAdmin = async () => {
+  window.document.body.style.display = "none"; //화면 가리고 시작
+  const token = sessionStorage.getItem("token");
+  if (!token) {
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+
+    window.location.replace(`/login?previouspage=${pathname + search}`);
   }
 
   const res = await fetch("/api/admin/check", {
@@ -71,15 +68,36 @@ export const checkAdmin = async ()=> {
     },
   });
 
-  const {result} = await res.json();
+  const { result } = await res.json();
 
-  if(result === "success") {
+  if (result === "success") {
     window.document.body.style.display = "block";
 
     return;
   } else {
-    alert("관리자 전용 페이지 입니다.")
+    alert("관리자 전용 페이지 입니다.");
 
     window.location.replace("/");
   }
-}
+};
+
+export const renderClientSideComponent = () => {
+  const headerEl = document.querySelector("#header");
+
+  if (headerEl) {
+    const header = fetch("../headerFooter/header.html");
+    header
+      .then((res) => res.text())
+      .then((text) => {
+        document.querySelector("#header").innerHTML = text;
+        let style = document.createElement("link");
+        style.href = "/mypage/HeaderFooter.css";
+        style.rel = "stylesheet";
+        document.head.appendChild(style);
+        let script = document.createElement("script");
+        script.type = "module";
+        script.src = "./header.js";
+        document.body.appendChild(script);
+      });
+  }
+};
