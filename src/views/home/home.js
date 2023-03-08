@@ -1,13 +1,13 @@
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
-import { header } from '../mypage/header.js'
+import { header } from '../mypage/header.js';
 
+// 헤더
 header();
+// 상품 목록 렌더링
+insertProductElement();
 const productList = document.querySelector(".section_box");
 const token = sessionStorage.getItem("token");
-
-// 데이터를 받아 요소를 만든 후, html에 삽입
-insertProductElement();
 
 async function insertProductElement() {
   const res = await fetch(`api/products`);

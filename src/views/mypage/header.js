@@ -1,4 +1,7 @@
-export function header() { window.addEventListener("load", async () => {
+import {searchProduct} from '../home/searching.js';
+
+export function header() { 
+  window.addEventListener("load", async () => {
   const body = document.querySelector(".body");
   body.insertAdjacentHTML(
     "afterBegin",
@@ -120,5 +123,14 @@ export function header() { window.addEventListener("load", async () => {
       `
     )
   }
+const searchBtn = document.querySelector(".searchBtn");
+const searchBar = document.querySelector(".header_search");
+
+searchBtn.addEventListener("click", searchProduct(searchBar));
+searchBar.addEventListener("keyup", function (e) {
+  if (e.keyCode === 13) {
+    searchProduct(searchBar);
+  }
+});
 })
 }

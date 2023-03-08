@@ -1,7 +1,4 @@
-const searchBtn = document.querySelector(".searchBtn");
-const searchBar = document.querySelector(".header_search");
-
-function searchProduct() {
+export function searchProduct(searchBar) {
   const productAll = document.querySelectorAll(".pd_block");
 
   const modelName = document.querySelectorAll(".tag_name");
@@ -20,15 +17,8 @@ function searchProduct() {
       name[i].innerHTML.includes(searchBar.value.trim()) ||
       category[i].innerHTML === searchBar.value.trim() ||
       category[i].innerHTML.includes(searchBar.value.trim())
-    ) {
-      productAll[i].classList.remove("hidden");
-    }
+    ) 
+    productAll[i].classList.remove("hidden");
+    
   }
 }
-
-searchBtn.addEventListener("click", searchProduct);
-searchBar.addEventListener("keyup", function (e) {
-  if (e.keyCode === 13) {
-    searchProduct();
-  }
-});
