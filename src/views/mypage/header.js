@@ -1,11 +1,11 @@
-import { searchProduct } from '../home/searching.js';
+import { searchProduct } from "../home/searching.js";
 
-export function header() { 
+export function header() {
   window.addEventListener("load", async () => {
-  const body = document.querySelector(".body");
-  body.insertAdjacentHTML(
-    "afterBegin",
-    `
+    const body = document.querySelector(".body");
+    body.insertAdjacentHTML(
+      "afterBegin",
+      `
     <header class="header">
       <div class="header_logo">
         <a href="/">
@@ -23,24 +23,24 @@ export function header() {
       <ul class="header_right"></ul>
     </header>
     `
-  );
-  
-  const rightHeader = document.querySelector('.header_right')
+    );
 
-  const token = sessionStorage.getItem("token");
-  if (token) {
-    const res = await fetch("/api/admin/check", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const rightHeader = document.querySelector(".header_right");
 
-    const { result } = await res.json();
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      const res = await fetch("/api/admin/check", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    if (result === "success") {
-      rightHeader.insertAdjacentHTML(
-        "afterBegin",
-        `      
+      const { result } = await res.json();
+
+      if (result === "success") {
+        rightHeader.insertAdjacentHTML(
+          "afterBegin",
+          `      
         <li id="header_addProduct">
           <a href="/products">
             ADD-PRODUCT
@@ -62,11 +62,11 @@ export function header() {
           </a>
         </li>
         `
-      )
-    } else {
-      rightHeader.insertAdjacentHTML(
-        "afterBegin",
-        `      
+        );
+      } else {
+        rightHeader.insertAdjacentHTML(
+          "afterBegin",
+          `      
         <li id="header_cart">
           <a href="/mypage/myPageCart">
             CART
@@ -86,20 +86,19 @@ export function header() {
           </a>
         </li>
         `
-      )
-    }
-    
-  const logoutBtn = document.querySelector("#logout");
+        );
+      }
 
-  logoutBtn.addEventListener("click", () => {
-    sessionStorage.removeItem("token");
-    window.location.href = "/";
-  });
-  }
-  else {
-    rightHeader.insertAdjacentHTML(
-      "afterBegin",
-      `
+      const logoutBtn = document.querySelector("#logout");
+
+      logoutBtn.addEventListener("click", () => {
+        sessionStorage.removeItem("token");
+        window.location.href = "/";
+      });
+    } else {
+      rightHeader.insertAdjacentHTML(
+        "afterBegin",
+        `
       <li id="header_login">
         <a href="/login">
           LOGIN
@@ -121,16 +120,18 @@ export function header() {
         </a>
       </li>
       `
-    )
-  }
-const searchBtn = document.querySelector(".searchBtn");
-const searchBar = document.querySelector(".header_search");
+      );
+    }
+    const searchBtn = document.querySelector(".searchBtn");
+    const searchBar = document.querySelector(".header_search");
 
-searchBtn.addEventListener("click", searchProduct(searchBar));
-searchBar.addEventListener("keyup", function (e) {
-  if (e.keyCode === 13) {
-    searchProduct(searchBar);
-  }
-});
-})
+    searchBtn.addEventListener("click", (searchBtn) =>
+      searchProduct(searchBar)
+    );
+    searchBar.addEventListener("keyup", function (e) {
+      if (e.keyCode === 13) {
+        searchProduct(searchBar);
+      }
+    });
+  });
 }

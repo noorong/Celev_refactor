@@ -17,8 +17,7 @@ export function searchProduct(searchBar) {
       name[i].innerHTML.includes(searchBar.value.trim()) ||
       category[i].innerHTML === searchBar.value.trim() ||
       category[i].innerHTML.includes(searchBar.value.trim())
-    ) 
-    productAll[i].classList.remove("hidden");
-    
+    )
+      productAll[i].classList.remove("hidden");
   }
 }
