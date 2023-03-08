@@ -1,8 +1,6 @@
 export function change() {
   window.addEventListener("load", async () => {
-    const admin = document.querySelector("#admin");
-    const user = document.querySelector("#user");
-    const guest = document.querySelector("#guest");
+    const rightHeader = document.querySelector('.header_right')
 
     const token = sessionStorage.getItem("token");
     if (token) {
@@ -15,21 +13,88 @@ export function change() {
       const { result } = await res.json();
 
       if (result === "success") {
-        admin.classList.remove("hidden");
-        user.classList.add("hidden");
-        guest.classList.add("hidden");
-
-        return;
+        window.addEventListener('load', () => {
+          rightHeader.insertAdjacentHTML(
+            "afterBegin",
+            `      
+            <li id="header_addProduct">
+              <a href="/products">
+                ADD-PRODUCT
+              </a>  
+            </li>
+            <li id="header_mypage">
+              <a href="/admin">
+                ADMIN-PAGE
+              </a>  
+            </li>
+            <li id="header_notice">
+              <a href="/notice"> 
+                NOTICE 
+              </a>
+            </li>
+            <li id="header_logout">
+              <a href="/#" id="logout">
+                LOG OUT
+              </a>
+            </li>
+    `
+          )
+        })
       } else {
-        user.classList.remove("hidden");
-        guest.classList.add("hidden");
-        admin.classList.add("hidden");
-        return;
+        window.addEventListener('load', () => {
+          rightHeader.insertAdjacentHTML(
+            "afterBegin",
+            `      
+            <li id="header_cart">
+              <a href="/mypage/myPageCart">
+                CART
+              </a>
+            </li>
+            <li id="header_myPage">
+              <a href="/mypage">
+                MY PAGE
+              </a>
+            </li>
+            <li id="header_notice">
+              <a href="/notice"> NOTICE </a>
+            </li>
+            <li id="header_logout">
+              <a href="/#" id="logout">
+                 LOG OUT
+              </a>
+            </li>
+            `
+          )
+        })
       }
     }
-
-    guest.classList.remove("hidden");
-    user.classList.add("hidden");
-    admin.classList.add("hidden");
-  });
-}
+    window.addEventListener('load', () => {
+      rightHeader.insertAdjacentHTML(
+        "afterBegin",
+        `
+        <li id="header_login">
+          <a href="/login">
+            LOGIN
+          </a>
+        </li>
+        <li id="header_wish">
+          <a href="/register">
+            REGISTER
+          </a>
+        </li>
+        <li id="header_cart">            
+          <a href="/guest">
+            GUEST
+          </a>
+        </li>
+        <li id="header_notice">
+          <a href="/notice"> 
+            NOTICE 
+          </a>
+        </li>
+        `
+      )
+    })
+    }
+    
+  )}
