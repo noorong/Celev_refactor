@@ -1,3 +1,5 @@
+export function slideScript() {
+
 // 슬라이크 전체 크기(width 구하기)
 const slide = document.querySelector(".slide");
 let slideWidth = slide.offsetWidth;
@@ -169,3 +171,4 @@ slide.addEventListener("mouseout", () => {
     nextMove();
   }, 3000);
 });
+}

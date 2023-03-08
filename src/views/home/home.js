@@ -1,9 +1,12 @@
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
 import { header } from '../mypage/header.js';
+import { slideScript } from "./slideScript.js";
+import { filtering } from "./category.js";
 
-// 헤더
+
 header();
+slideScript();
 // 상품 목록 렌더링
 insertProductElement();
 const productList = document.querySelector(".section_box");
@@ -113,3 +116,7 @@ async function insertProductElement() {
     }
   });
 }
+
+const categoryBox = document.querySelector(".category");
+
+categoryBox.addEventListener("click", filtering);

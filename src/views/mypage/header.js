@@ -1,4 +1,4 @@
-import {searchProduct} from '../home/searching.js';
+import { searchProduct } from '../home/searching.js';
 
 export function header() { 
   window.addEventListener("load", async () => {
