@@ -1,13 +1,19 @@
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
-import { header } from '../mypage/header.js';
-import { slideScript } from "./slideScript.js";
-import { filtering } from "./category.js";
-
+import { header } from "../utils/header.js";
+import { footer } from "../utils/footer.js";
+import { slideScript } from "../utils/slideScript.js";
+import { filtering } from "../utils/category.js";
 
 header();
+footer();
 slideScript();
-// 상품 목록 렌더링
+
+//필터링
+const categoryBox = document.querySelector(".category");
+categoryBox.addEventListener("click", filtering);
+
+// 상품 목록 렌더링, 좋아요 기능
 insertProductElement();
 const productList = document.querySelector(".section_box");
 const token = sessionStorage.getItem("token");
@@ -116,7 +122,3 @@ async function insertProductElement() {
     }
   });
 }
-
-const categoryBox = document.querySelector(".category");
-
-categoryBox.addEventListener("click", filtering);
