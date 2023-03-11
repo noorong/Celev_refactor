@@ -32,44 +32,44 @@ viewsRouter.use("/mypage/mypageCart", (req, res) => {
 viewsRouter.use("/mypage/mypageReview", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageReview.html"));
 });
-// viewsRouter.use("/mypage/mypageOrderList", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../views/mypage/mypageOrderList.html"));
-// });
+
 viewsRouter.use("/mypage/withdrawal", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/mypage/mypageWithdrawal.html"));
 });
 
-viewsRouter.use("/admin", serveStatic("adminPage"));
+viewsRouter.use("/admin", serveStatic("admin"));
+
+viewsRouter.use("/admin/adminMember", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/admin/adminMember/adminMember.html")
+  );
+});
 
 viewsRouter.get("/admin/adminProductList", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/adminProductList/adminProductList.html")
+    path.join(__dirname, "../views/admin/adminProductList/adminProductList.html")
   );
 });
 
 viewsRouter.get("/admin/adminProductDetail/:productId", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/admin_ProductDetail/admin_ProductDetail.html")
+    path.join(__dirname, "../views/admin/adminProductDetail/adminProductDetail.html")
   );
 });
 
 viewsRouter.use("/adminProductDetail/:productId/updateProduct", serveStatic("updateProduct"));
 
 viewsRouter.use("/admin/adminOrder", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/admin_orders/admin_orders.html"));
+  res.sendFile(path.join(__dirname, "../views/admin/adminOrder/adminOrder.html"));
 });
-viewsRouter.use("/admin/adminMember", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../views/admin_members/admin_members.html")
-  );
-});
+
 viewsRouter.use("/admin/adminReview", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/admin_reviews/admin_reviews.html"));
+  res.sendFile(path.join(__dirname, "../views/admin/adminReview/adminReview.html"));
 });
+
 viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
-
 
 viewsRouter.use("/notice/write", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/write.html"));

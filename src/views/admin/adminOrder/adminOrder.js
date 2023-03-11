@@ -1,5 +1,9 @@
 import * as Api from "/api.js";
-import { addCommas, checkAdmin } from "../useful-functions.js";
+import { addCommas, checkAdmin } from "../../useful-functions.js";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
+header();
+footer();
 
 const ordersCount = document.querySelector("#ordersCount");
 const prepareCount = document.querySelector("#prepareCount");

@@ -1,9 +1,9 @@
 import * as Api from "/api.js";
 import { checkLogin } from "../useful-functions.js";
-import { header } from "../utils/header.js";
-import { footer } from "../utils/footer.js";
 import { slideScript } from "../utils/slideScript.js";
 import { filtering } from "../utils/category.js";
+import { header } from "../utils/header.js";
+import { footer } from "../utils/footer.js";
 
 header();
 footer();
@@ -43,11 +43,11 @@ async function insertProductElement() {
           <p class="pd_name" id="${name}">${name}</p>
         </div>
         <div class="tag_box">
-        <div>
-          <a class="tag_category">${category}</a>
-          <a class="tag_name" id="${description}">${description}</a>
-        </div>
-        <p class="pd_price">${price} 원</p>
+          <div>
+            <a class="tag_category">${category}</a>
+            <a class="tag_name" id="${description}">${description}</a>
+          </div>
+          <p class="pd_price">${price} 원</p>
         </div>
       </article>
       <div class="tag_like">

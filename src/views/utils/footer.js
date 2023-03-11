@@ -1,9 +1,9 @@
 export const footer = () => {
-  const main = document.querySelector(".main");
+  const body = document.querySelector(".body");
 
   window.addEventListener("load", () => {
-    main.insertAdjacentHTML(
-      "afterend",
+    body.insertAdjacentHTML(
+      "beforeend",
       `
       <footer class="footer">
       <address class="address_left">

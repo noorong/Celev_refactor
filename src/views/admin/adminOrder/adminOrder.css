@@ -1,122 +1,33 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.body {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
 }
 
-.section {
-  flex: 1;
-  width: 1000px;
-  margin: 110px auto;
+.body .section_box {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin: 0 60px;
 }
-
-.section h1 {
-  font-size: 24px;
-  font-weight: bold;
-
-  margin-bottom: 60px;
-}
-
-.section h2 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.section h3 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.section .my_shopping {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  font-size: 14px;
-}
-
-.section .my_shopping div {
-  width: 188px;
-}
-
-.section .my_shopping .title {
-  width: 1000px;
-  height: 60px;
-  border: 1px solid lightgray;
-  border-bottom: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 16px;
-  text-align: center;
-}
-
-.section .my_shopping .title .first {
-  width: 625px;
-}
-
-.section .my_shopping .content {
-  width: 1000px;
-  height: 200px;
-  border: 1px solid lightgray;
-
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-
-  text-align: center;
-}
-
-.section .my_shopping .content .first {
-  width: 545px;
-  padding-left: 40px;
-  padding-right: 40px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.section .my_shopping .content .product_img {
-  width: 176px;
-  height: 176px;
-  border: 1px solid black;
-}
-
-.section .my_shopping .content .product_script {
-  width: 329px;
-
-  text-align: left;
-
-  display: flex;
-  flex-direction: column;
-  gap: 46px;
-}
-
-.section .my_shopping .product_price {
-  width: 188px;
-  height: 202px;
-
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-/*  */
 
 .divide_line {
   width: 100%;
   border: 0.25px solid gray;
 }
 
+.order_manage {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
 .order_moniter {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 5px 0;
 }
 
 .order_moniter dl {
@@ -126,17 +37,22 @@
 
 .list_heading {
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 3fr 1fr 1fr 2fr 2fr;
   text-align: center;
   background: #d3d3d3;
   padding: 20px 0px;
   border-radius: 5px;
 }
 
+#delivery {
+  padding-left: 60px;
+}
+
 .listing {
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 3fr 1fr 1fr 2fr 2fr;
   text-align: center;
+  font-size: small;
   margin: 15px 0px;
 }
 
@@ -166,11 +82,11 @@
   font-size: 16px;
 }
 .selectBox .icoArrow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 35px;
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  z-index: 1; 
+  width: 35px; 
   height: inherit;
   border-left: 2px solid rgb(65, 65, 65);
   display: flex;
@@ -180,7 +96,7 @@
 
 .selectBox .icoArrow img {
   width: 50%;
-  transition: .3s;
+  transition: .3s; 
 }
 
 .selectBox .select:focus + .icoArrow img {
@@ -257,19 +173,17 @@
 .button_comp {
   width: 100px;
   height: 50px;
-  font-size: 20px;
+  font-size: 30px;
   background: #009991;
   margin: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .button_canc {
   width: 100px;
   height: 50px;
-  font-size: 20px;
+  font-size: 30px;
   background: #5d5d5d;
   margin: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
 }

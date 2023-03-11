@@ -1,5 +1,9 @@
-import { checkAdmin } from "../useful-functions.js";
 import * as Api from "/api.js";
+import { checkAdmin } from "../../useful-functions.js";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
+header();
+footer();
 
 const section = document.querySelector(".title");
 
