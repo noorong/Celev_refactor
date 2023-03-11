@@ -3,7 +3,7 @@ export const footer = () => {
 
   window.addEventListener("load", () => {
     main.insertAdjacentHTML(
-      "beforeend",
+      "afterend",
       `
       <footer class="footer">
       <address class="address_left">

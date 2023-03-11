@@ -38,8 +38,10 @@ async function insertProductElement() {
       <section class="pd_block" id="${category}">
       <img src="${img}"class="box" id="${num}"/>
       <article class="pd_text">
-        <p class="pd_brd" id="${brand}">${brand}</p>
-        <p class="pd_name" id="${name}">${name}</p>
+        <div class="pd_box">
+          <p class="pd_brd" id="${brand}">${brand}</p>
+          <p class="pd_name" id="${name}">${name}</p>
+        </div>
         <div class="tag_box">
         <div>
           <a class="tag_category">${category}</a>
@@ -47,11 +49,11 @@ async function insertProductElement() {
         </div>
         <p class="pd_price">${price} 원</p>
         </div>
-        <div class="tag_like">
-            <img class="like_src" src="../image/like.png" alt="" width="30px" id="like_${num}"> 
-            <p class="like_count" id="likeCount_${num}">${like}</p>
-        </div>
       </article>
+      <div class="tag_like">
+          <img class="like_src" src="../image/like.png" alt="" width="30px" id="like_${num}"> 
+          <p class="like_count" id="likeCount_${num}">${like}</p>
+      </div>
     </section>
     `
     );
