@@ -80,15 +80,15 @@
 /*             footer              */
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
 
-  width: 100%;
+  width: 90%;
   background: #f4f4f4;
 
-  padding: 53px 0;
+  padding: 53px 5%;
   margin-top: 50px;
 }
 
