@@ -27,13 +27,13 @@ async function addAllEvent() {
   roleTag.innerText = `${role}`;
 
   function moveTomypageAccount() {
-    window.location.assign("/mypage/account");
+    window.location.assign("/mypage/mypageAccount");
   }
 
   mypageAccount.addEventListener("click", moveTomypageAccount);
 
   function moveTomypageOrderList() {
-    window.location.assign(`/myPageOrderList/${email}`);
+    window.location.assign(`/mypage/myPageOrderList/${email}`);
   }
 
   mypageOrderList.addEventListener("click", moveTomypageOrderList);

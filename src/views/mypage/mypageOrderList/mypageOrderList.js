@@ -1,17 +1,21 @@
 // import { checkLogin } from "../useful-functions.js";
 import * as Api from "/api.js";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
+header();
+footer();
 
 const section = document.querySelector(".title");
-const product = document.querySelector(".product_name");
-const userEmail = window.location.pathname.split("/")[2];
+// const product = document.querySelector(".product_name");
+const userEmail = window.location.pathname.split("/")[3];
 let ref = {};
 insertOrderListElement();
 
 let orderLists = {};
 async function insertOrderListElement() {
-
   const res = await fetch(`/api/myOrders/${userEmail}`);
   orderLists = await res.json();
+  console.log(orderLists);
   orderLists.forEach((orderList) => {
     orderList.products.forEach((productList) => {
       const name = productList.name;
@@ -21,7 +25,7 @@ async function insertOrderListElement() {
       const orderDate = orderList.createdAt.substr(0, 10);
       const price = productList.totalPrice;
       const status = orderList.status;
-      const deleteButton = `delete-${orderNumber}`;
+      const deleteButton = `delete-${parseInt(orderNumber)}`;
       if (status === "상품 준비중") {
         section.insertAdjacentHTML(
           "afterend",
@@ -44,9 +48,11 @@ async function insertOrderListElement() {
             <button class="${deleteButton}">주문취소</button>
             </div>
           </div>`
-        )
+        );
         ref[deleteButton] = document.querySelector(`.${deleteButton}`);
-        ref[deleteButton].addEventListener("click",(event)=> deleteOrderList(event, orderNumber));
+        ref[deleteButton].addEventListener("click", (event) =>
+          deleteOrderList(event, orderNumber)
+        );
       } else {
         section.insertAdjacentHTML(
           "afterend",
@@ -70,7 +76,7 @@ async function insertOrderListElement() {
         );
       }
     });
-  }); 
+  });
 }
 async function deleteOrderList(event, orderNumber) {
   event.preventDefault();

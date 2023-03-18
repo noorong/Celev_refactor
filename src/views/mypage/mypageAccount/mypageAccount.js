@@ -1,5 +1,9 @@
 import * as Api from "/api.js";
-import { checkLogin } from "../useful-functions.js";
+import { checkLogin } from "../../useful-functions.js";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
+header();
+footer();
 
 const nameTag = document.querySelector(".name");
 const phoneNumTag = document.querySelector(".phoneNum");
@@ -22,7 +26,7 @@ async function addAllEvents() {
   addressTag.innerText = `${address}`;
 }
 function update() {
-  window.location.assign("/mypage/accountUpdate");
+  window.location.assign("/mypage/Update");
 }
 
 updateBtn.addEventListener("click", update);

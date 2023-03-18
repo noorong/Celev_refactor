@@ -1,5 +1,9 @@
-import { checkLogin } from "../useful-functions.js";
 import * as Api from "/api.js";
+import { checkLogin } from "../../useful-functions.js";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
+header();
+footer();
 
 const section = document.querySelector(".title");
 
@@ -24,7 +28,7 @@ async function getReviewList() {
     for (let i = 0; i < orderList.products.length; i++) {
       const product = orderList.products[i];
 
-      const orderNo = orderList.orderNumber;
+      const orderNo = parseInt(orderList.orderNumber);
       const productNo = product.num;
       const img = product.img;
       const name = product.name;
