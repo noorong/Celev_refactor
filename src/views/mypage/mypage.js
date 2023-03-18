@@ -1,6 +1,8 @@
 import { checkLogin } from "../useful-functions.js";
 import * as Api from "/api.js";
 import { header } from "../utils/header.js";
+import { footer } from "../utils/footer.js";
+footer();
 header();
 
 const mypageAccount = document.querySelector("#mypageAccount_button");

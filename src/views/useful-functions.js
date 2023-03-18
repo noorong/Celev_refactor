@@ -80,36 +80,3 @@ export const checkAdmin = async () => {
     window.location.replace("/");
   }
 };
-
-export const headerFooterComponent = () => {
-  const headerEl = document.querySelector("#header");
-  const footerEl = document.querySelector("#footer");
-
-  if (headerEl) {
-    const header = fetch("../headerFooter/header.html");
-    header
-      .then((res) => res.text())
-      .then((text) => {
-        document.querySelector("#header").innerHTML = text;
-        let style = document.createElement("link");
-        style.href = "/mypage/HeaderFooter.css";
-        style.rel = "stylesheet";
-        document.head.appendChild(style);
-        let script = document.createElement("script");
-        script.type = "module";
-        script.src = "./header.js";
-        document.body.appendChild(script);
-      });
-  }
-
-  if (footerEl) {
-    const footer = fetch("../headerFooter/footer.html");
-    footer
-      .then((res) => res.text())
-      .then((text) => {
-        document.querySelector("#footer").innerHTML = text;
-      });
-  }
-};
-
-export const footerComponent = () => {};
