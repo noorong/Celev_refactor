@@ -51,13 +51,7 @@ async function addAllEvent() {
   mypageReview.addEventListener("click", moveTomypageReview);
 
   function moveTomypageWithdrawal() {
-    window.location.assign("/mypage/withdrawal");
-  }
-
-  mypageReview.addEventListener("click", moveTomypageReview);
-
-  function moveTomypageWithdrawal() {
-    window.location.assign("/mypage/withdrawal");
+    window.location.assign("/mypage/mypageWithdrawal");
   }
 
   mypageWithdrawal.addEventListener("click", moveTomypageWithdrawal);

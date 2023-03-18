@@ -42,7 +42,7 @@ viewsRouter.use("/mypage/mypageReview", (req, res) => {
     path.join(__dirname, "../views/mypage/mypageReview/mypageReview.html")
   );
 });
-viewsRouter.use("/mypage/withdrawal", (req, res) => {
+viewsRouter.use("/mypage/mypageWithdrawal", (req, res) => {
   res.sendFile(
     path.join(
       __dirname,
