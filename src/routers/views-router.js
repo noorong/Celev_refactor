@@ -10,14 +10,15 @@ viewsRouter.use("/", serveStatic("home"));
 viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
 viewsRouter.use("/guest", serveStatic("guest"));
-viewsRouter.use("/products", serveStatic("addProduct"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/order_now", serveStatic("order_now"));
 viewsRouter.use("/order", serveStatic("order"));
-viewsRouter.use("/updateProduct", serveStatic("updateProduct"));
 viewsRouter.use("/notice", serveStatic("notice"));
 viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
+
+//mypage
 viewsRouter.use("/mypage", serveStatic("mypage"));
+
 viewsRouter.use("/mypage/mypageOrderList/:email", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/mypage/mypageOrderList/mypageOrderList.html")
@@ -51,7 +52,14 @@ viewsRouter.use("/mypage/mypageWithdrawal", (req, res) => {
   );
 });
 
+// admin
 viewsRouter.use("/admin", serveStatic("admin"));
+
+viewsRouter.use("/admin/addProduct", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/admin/addProduct/addProduct.html")
+  );
+});
 
 viewsRouter.use("/admin/adminMember", (req, res) => {
   res.sendFile(
@@ -89,6 +97,15 @@ viewsRouter.use("/admin/adminReview", (req, res) => {
   );
 });
 
+viewsRouter.use("/adminProductDetail/:productId/updateProduct", (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "../views/admin/adminProductDetail/updateProduct/updateProduct.html"
+    )
+  );
+});
+
 viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
@@ -102,15 +119,6 @@ viewsRouter.use("/notice/:postNo", (req, res) => {
 });
 
 viewsRouter.use("/postEdit/:postNo", serveStatic("postEdit"));
-
-// viewsRouter.use("/postEdit/:postNo", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../views/postEdit/postEdit.html"));
-// });
-
-viewsRouter.use(
-  "/productDetail/:productId/updateProduct",
-  serveStatic("updateProduct")
-);
 
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));

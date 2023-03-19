@@ -1,4 +1,8 @@
 import * as Api from "/api.js";
+import { header } from "../../utils/header";
+import { footer } from "../../utils/footer";
+header();
+footer();
 
 const productId = window.location.pathname.split("/")[3];
 
@@ -54,7 +58,7 @@ const drawProduct = async () => {
 };
 
 function addProduct() {
-  window.location.assign("/products");
+  window.location.assign("/admin/addProduct");
 }
 
 function moveToadminProductUpdate() {

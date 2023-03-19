@@ -42,7 +42,7 @@ export function header() {
           "afterBegin",
           `      
         <li id="header_addProduct">
-          <a href="/products">
+          <a href="/admin/addProduct">
             ADD-PRODUCT
           </a>  
         </li>
