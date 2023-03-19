@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { checkLogin } from "../../useful-functions.js";
+import { checkLogin } from "../../utils/useful-functions.js";
 import { header } from "../../utils/header.js";
 import { footer } from "../../utils/footer.js";
 header();

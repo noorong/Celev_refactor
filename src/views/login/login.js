@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { validateEmail } from "/useful-functions.js";
+import { validateEmail } from "/utils/useful-functions.js";
 
 // 요소(element), input 혹은 상수
 const emailInput = document.querySelector("#emailInput");

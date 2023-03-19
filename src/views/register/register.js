@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { validateEmail } from "/useful-functions.js";
+import { validateEmail } from "/utils/useful-functions.js";
 
 // 요소(element), input 혹은 상수
 const fullNameInput = document.querySelector("#fullNameInput");
@@ -71,14 +71,18 @@ async function handleSubmit(e) {
   }
 }
 
-window.onload = function(){
-  document.getElementById("addressInput").addEventListener("click", function(){ //주소입력칸을 클릭하면
+window.onload = function () {
+  document
+    .getElementById("addressInput")
+    .addEventListener("click", function () {
+      //주소입력칸을 클릭하면
       //카카오 지도 발생
       new daum.Postcode({
-          oncomplete: function(data) { //선택시 입력값 세팅
-              document.getElementById("addressInput").value = data.address; // 주소 넣기
-              // document.querySelector("input[id=address_detail]").focus(); //상세입력 포커싱
-          }
+        oncomplete: function (data) {
+          //선택시 입력값 세팅
+          document.getElementById("addressInput").value = data.address; // 주소 넣기
+          // document.querySelector("input[id=address_detail]").focus(); //상세입력 포커싱
+        },
       }).open();
-  });
-}
+    });
+};

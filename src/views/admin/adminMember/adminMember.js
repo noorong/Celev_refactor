@@ -1,19 +1,18 @@
 import * as Api from "/api.js";
-import { addCommas, checkAdmin } from "../../useful-functions.js";
+import { addCommas, checkAdmin } from "../../utils/useful-functions.js";
 import { header } from "../../utils/header.js";
 import { footer } from "../../utils/footer.js";
 header();
 footer();
-
 
 const usersCount = document.querySelector("#usersCount");
 const adminCount = document.querySelector("#adminCount");
 const listing = document.querySelector(".listing-user");
 
 const modal = document.querySelector("#modal");
-const modalBackground = document.querySelector("#modalBackground")
+const modalBackground = document.querySelector("#modalBackground");
 const modalCloseButton = document.querySelector("#modalCloseButton");
-const deleteCompleteButton = document.querySelector('#deleteComplete');
+const deleteCompleteButton = document.querySelector("#deleteComplete");
 const deleteCancelButton = document.querySelector("#deleteCancelButton");
 
 //admimn checking 함수 필요
@@ -22,11 +21,11 @@ insertUsers();
 addAllEvents();
 
 function addAllEvents() {
-    modalBackground.addEventListener("click", closeModal);
-    modalCloseButton.addEventListener("click", closeModal);
-    document.addEventListener("keydown", keyDownCloseModal);
-    deleteCompleteButton.addEventListener("click", deleteUserDate);
-    deleteCancelButton.addEventListener("click", cancelDelete);
+  modalBackground.addEventListener("click", closeModal);
+  modalCloseButton.addEventListener("click", closeModal);
+  document.addEventListener("keydown", keyDownCloseModal);
+  deleteCompleteButton.addEventListener("click", deleteUserDate);
+  deleteCancelButton.addEventListener("click", cancelDelete);
 }
 
 let userIdToDelete;
@@ -34,21 +33,21 @@ async function insertUsers() {
   const users = await Api.get("/api/userlist");
 
   const summary = {
-    usersCount:0,
-    adminCount:0,
+    usersCount: 0,
+    adminCount: 0,
   };
 
-  for(const user of users) {
-    const {_id, email, name, role, createdAt} = user;
+  for (const user of users) {
+    const { _id, email, name, role, createdAt } = user;
     const date = createdAt.split("T")[0];
 
     summary.usersCount += 1;
 
-    if(role === "admin") {
+    if (role === "admin") {
       summary.adminCount += 1;
     }
     listing.insertAdjacentHTML(
-      "beforeend", 
+      "beforeend",
       `
       <div class="listing" id="user-${_id}">
         <div class="column1" id="date" >${date}</div>
@@ -58,8 +57,12 @@ async function insertUsers() {
         <div class="column1" id="admin">
           <div class="select">
             <select name="sB" id="roleSelect-${_id}">
-              <option ${role==="일반회원"?"selected":""} value="일반회원">일반회원</option>
-              <option ${role==="admin"?"selected": ""}value="admin">admin</option>
+              <option ${
+                role === "일반회원" ? "selected" : ""
+              } value="일반회원">일반회원</option>
+              <option ${
+                role === "admin" ? "selected" : ""
+              }value="admin">admin</option>
             </select>
           </div> 
         </div>
@@ -76,9 +79,9 @@ async function insertUsers() {
     const index = roleSelectBox.selectedIndex;
     roleSelectBox.className = roleSelectBox[index].className;
 
-    roleSelectBox.addEventListener("change", async()=> {
+    roleSelectBox.addEventListener("change", async () => {
       const newRole = roleSelectBox.value;
-      const data = {role: newRole};
+      const data = { role: newRole };
 
       const index = roleSelectBox.selectedIndex;
       roleSelectBox.className = roleSelectBox[index].className;
@@ -86,7 +89,7 @@ async function insertUsers() {
       await Api.patch("/api/users/role", _id, data);
     });
 
-    deleteBtn.addEventListener("click", async ()=> {
+    deleteBtn.addEventListener("click", async () => {
       userIdToDelete = _id;
       openModal();
     });
@@ -108,10 +111,10 @@ async function deleteUserDate(e) {
     const deleteItem = document.querySelector(`#user-${userIdToDelete}`);
     deleteItem.remove();
 
-    userIdToDelete="";
+    userIdToDelete = "";
 
     closeModal();
-  }catch(err) {
+  } catch (err) {
     alert(`회원정보 삭제 과정에서 오류가 발생하였습니다: ${err}`);
   }
 }
@@ -121,7 +124,6 @@ function cancelDelete() {
   closeModal();
 }
 
-
 // modal용 script
 const order_cancel = document.getElementById("order_cancel_btn");
 function closeModal() {
@@ -130,7 +132,6 @@ function closeModal() {
 function openModal() {
   modal.style.display = "flex";
 }
-
 
 /*esc close module*/
 function keyDownCloseModal(e) {

@@ -1,4 +1,4 @@
-import { checkAdmin } from "../useful-functions.js";
+import { checkAdmin } from "../utils/useful-functions.js";
 import * as Api from "/api.js";
 
 // const adminCategory = document.querySelector("#adminCategory_button");

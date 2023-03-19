@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { addCommas, checkAdmin } from "../../useful-functions.js";
+import { addCommas, checkAdmin } from "../../utils/useful-functions.js";
 import { header } from "../../utils/header.js";
 import { footer } from "../../utils/footer.js";
 header();
@@ -142,10 +142,11 @@ async function deleteOrderDate(event, orderNumber) {
 
       const deleteItem = document.querySelector(`#order-${orderNumDelete}`);
       deleteItem.remove();
-
-    } catch {(err)=>{
-      alert(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
-    }}
+    } catch {
+      (err) => {
+        alert(`주문 삭제 과정에서 오류가 발생하였습니다: ${err}`);
+      };
+    }
   }
   window.location.href = "/admin/adminOrder";
 }

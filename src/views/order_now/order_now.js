@@ -1,5 +1,9 @@
 import * as Api from "../api.js";
-import { checkLogin, getToday , validateEmail} from "../useful-functions.js";
+import {
+  checkLogin,
+  getToday,
+  validateEmail,
+} from "../utils/useful-functions.js";
 // import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("buyNowProducts"));
@@ -8,8 +12,8 @@ const addressTag = document.querySelector("#addressInput");
 const emailTag = document.querySelector("#emailInput");
 const phoneNumTag = document.querySelector("#phoneNumberInput");
 const token = sessionStorage.getItem("token");
-cart[0].totalPrice=cart[0].price;
-cart[0].totalCount=1;
+cart[0].totalPrice = cart[0].price;
+cart[0].totalCount = 1;
 if (token) {
   checkLogin();
   insertUserData();
@@ -36,11 +40,15 @@ if (token) {
         const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
+        const cost = parseInt(
+          document
+            .querySelector(".AllPrice")
+            .innerHTML.replace(/(,|개|원)/g, "")
+        );
         const count = cart.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
-        alert(`주문이 완료 되었습니다.`)
+        alert(`주문이 완료 되었습니다.`);
         localStorage.clear();
         if (result) {
           window.location.href = "/";
@@ -56,11 +64,10 @@ if (token) {
   insertOrderElement();
   document.querySelector(".payButton").addEventListener("click", handleSubmit);
 
-
   async function handleSubmit(e) {
     e.preventDefault();
     let payments = document.getElementsByName("payment");
-    let payment = null; 
+    let payment = null;
     for (let i = 0; i < payments.length; i++) {
       if (payments[i].checked == true) {
         payment = payments[i].value;
@@ -76,47 +83,52 @@ if (token) {
         const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
-        const cost = parseInt(document.querySelector(".AllPrice").innerHTML.replace(/(,|개|원)/g, ""))
+        const cost = parseInt(
+          document
+            .querySelector(".AllPrice")
+            .innerHTML.replace(/(,|개|원)/g, "")
+        );
         const count = products.length;
         const data = { orderNumber, products, cost, count, payMethod, email };
 
-          //user 정보 확인
+        //user 정보 확인
         const name = inputnameTag.value;
         const password = String(orderNumber);
         const phoneNum = phoneNumTag.value;
         const address = addressTag.value;
-        const role = "guest"
+        const role = "guest";
         const isMember = false;
 
         //잘 입력했는지
-        const isnameValid = name.length >=2;
+        const isnameValid = name.length >= 2;
         const isEmailValid = validateEmail(email);
-        const isAddressValid = address.length >=1;
-        const isNumberValid = phoneNum.length >=8;
+        const isAddressValid = address.length >= 1;
+        const isNumberValid = phoneNum.length >= 8;
 
-        if(!isnameValid) {
+        if (!isnameValid) {
           return alert("이름은 2글자 이상이어야 합니다.");
         }
 
-        if(!isEmailValid) {
+        if (!isEmailValid) {
           return alert("이메일 형식이 맞지 않습니다.");
         }
 
-        if(!isAddressValid) {
+        if (!isAddressValid) {
           return alert("주소 형식이 아닙니다.");
         }
-        
-        if(!isNumberValid) {
+
+        if (!isNumberValid) {
           return alert("전화번호 형식이 아닙니다.");
         }
-        
 
         try {
-          alert(`guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 주문조회 시 입력해주십시오.`)
+          alert(
+            `guest 주문이 완료 되었습니다. 주문번호(${password})를 꼭 기억하여 주문조회 시 입력해주십시오.`
+          );
           localStorage.clear();
         } catch (err) {
           console.error(err.stack);
-          alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`)
+          alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`);
         }
 
         const result = await Api.post("/api/orders", data);
@@ -132,8 +144,6 @@ if (token) {
     }
   }
 }
-
-
 
 let userData;
 async function insertUserData() {
@@ -198,6 +208,6 @@ async function insertOrderElement() {
     cost += parseInt(price.replace(/(,|개|원)/g, ""));
   });
   const totalPrice = document.querySelector(".AllPrice");
-  totalPrice.innerHTML = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  totalPrice.innerHTML = cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.querySelector(".totalCount").innerHTML = cart.length;
 }

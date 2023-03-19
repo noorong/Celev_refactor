@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { validateEmail } from "/useful-functions.js";
+import { validateEmail } from "/utils/useful-functions.js";
 
 const emailInput = document.querySelector("#emailInput");
 const orderNumberInput = document.querySelector("#orderNumberInput");

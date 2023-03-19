@@ -9,42 +9,40 @@
 ## ⭐️ About Project
 
 ```
-소비자들은 셀럽들을 선망하고 그들이 미치는 영향력의 대상이 됩니다. 
+소비자들은 셀럽들을 선망하고 그들이 미치는 영향력의 대상이 됩니다.
 우리는 셀럽의 영향력을 이용하고자 하여 셀럽들의 아이템에 중점을 둔 쇼핑몰을 기획하였습니다.
 ```
 
 ## 📄 Summary
 
 - 메인 페이지
-    - 검색 기능을 통한 키워드 검색(상품명, 셀럽명, 셀럽 분류)
-    - 카테고리 필터를 통한 셀럽 분류 별 상품 표시
-    - 무한 스크롤로 끊임없는 상품 소개
-    - 상품 블럭 위치에서 좋아요 기능 구현
-    - ImagelazyLoading을 통한 웹 성능 최적화
+  - 검색 기능을 통한 키워드 검색(상품명, 셀럽명, 셀럽 분류)
+  - 카테고리 필터를 통한 셀럽 분류 별 상품 표시
+  - 무한 스크롤로 끊임없는 상품 소개
+  - 상품 블럭 위치에서 좋아요 기능 구현
+  - ImagelazyLoading을 통한 웹 성능 최적화
 - 상품 상세 페이지
-    - 제품 사이즈 및 색상 선택과 수량 조절
-    - 바로 구매 & 장바구니 기능 구현
-    - 리뷰 및 문의 기능 구현
+  - 제품 사이즈 및 색상 선택과 수량 조절
+  - 바로 구매 & 장바구니 기능 구현
+  - 리뷰 및 문의 기능 구현
 - 마이 페이지
-    - 회원정보 수정
-    - 회원 탈퇴
-    - 주문 관리(주문내역 조회/삭제)
-    - 장바구니 관리
-    - 상품후기 관리(등록/삭제)
+  - 회원정보 수정
+  - 회원 탈퇴
+  - 주문 관리(주문내역 조회/삭제)
+  - 장바구니 관리
+  - 상품후기 관리(등록/삭제)
 - 관리자 페이지
-    - 상품 관리(등록/수정/삭제)
-    - 주문 내역 전체 조회
-    - 배송 상태 관리
-    - 상품 후기 관리
-    - 회원 관리
-    - 공지사항 관리(등록/수정/삭제)
+  - 상품 관리(등록/수정/삭제)
+  - 주문 내역 전체 조회
+  - 배송 상태 관리
+  - 상품 후기 관리
+  - 회원 관리
+  - 공지사항 관리(등록/수정/삭제)
 - 비회원 주문
-
 
 ## ⚒ 기술 스택
 
 <img src="https://user-images.githubusercontent.com/113027954/211986343-fd13d56c-1c80-41e9-aaf8-1ff71ea1e1da.png" width="960" >
-
 
 ### 💻 주요 기능
 
@@ -61,30 +59,32 @@
 <img width="960" alt="주문내역 조회" src="https://user-images.githubusercontent.com/113027954/211992053-4b62d3fa-9af0-4159-b477-79d91a0f018d.png">
 </details>
 
-
 ## 👤 테스트 계정
 
-  ```
-  - 👨‍ 사용자
-  ID: test555@example.com
-  PW: 123123123 
-  ```
-  ```
-  - 👨‍🔧 관리자
-  ID: admin555@example.com
-  PW: 123123123 
- ```
+```
+- 👨‍ 사용자
+ID: test555@example.com
+PW: 123123123
+```
+
+```
+- 👨‍🔧 관리자
+ID: admin555@example.com
+PW: 123123123
+```
 
 ## 👨‍👩‍👦‍👦 Responsibility
-| 담당자명(GitHub) | 담당 파트 |
-| --- | --- |
-| 박재훈 [@noorong](https://github.com/noorong) | 전체 UI design 및 개발, 검색, 카테고리 기능 개발, Nginx배포, 로그인, 회원가입 기능 구현 |
-| 김윤수 [@snowriceDD](https://github.com/snowriceDD) | 홈, 캐러셀, 상품 상세, 상품 블럭, UX/UI, 지도 API |
-| 송주혜 [@Zuhye](https://github.com/Zuhye) | 회원정보 API, 상품 API, 찜, 공지사항, 배포 |
-| 김현아 [@kimakuma](https://github.com/kimakuma) | 후기관리, 장바구니, 결제 API |
-| 동하 [@donggram2](https://github.com/donggram2) | 장바구니, 제품 상세 , 유저 API,  | 
+
+| 담당자명(GitHub)                                    | 담당 파트                                                                               |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| 박재훈 [@noorong](https://github.com/noorong)       | 전체 UI design 및 개발, 검색, 카테고리 기능 개발, Nginx배포, 로그인, 회원가입 기능 구현 |
+| 김윤수 [@snowriceDD](https://github.com/snowriceDD) | 홈, 캐러셀, 상품 상세, 상품 블럭, UX/UI, 지도 API                                       |
+| 송주혜 [@Zuhye](https://github.com/Zuhye)           | 회원정보 API, 상품 API, 찜, 공지사항, 배포                                              |
+| 김현아 [@kimakuma](https://github.com/kimakuma)     | 후기관리, 장바구니, 결제 API                                                            |
+| 동하 [@donggram2](https://github.com/donggram2)     | 장바구니, 제품 상세 , 유저 API,                                                         |
 
 ## 🗂 디렉토리 구조
+
 ```
 ce1ev
 └─ src
@@ -148,6 +148,6 @@ ce1ev
       ├─ productDetail
       ├─ register
       ├─ updateProduct
-      └─ useful-functions.js
+      └─ utils/useful-functions.js
 
 ```

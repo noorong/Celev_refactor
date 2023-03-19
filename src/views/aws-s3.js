@@ -1,4 +1,4 @@
-import { randomId } from "./useful-functions.js";
+import { randomId } from "./utils/useful-functions.js";
 // aws-s3 사이트에서의 설정값들
 const s3BucketName = "celev-bucket";
 const bucketRegion = "ap-northeast-2"; // 한국은 항상 ap-northeast-2임.
