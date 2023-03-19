@@ -77,11 +77,6 @@ viewsRouter.get("/admin/adminProductDetail/:productId", (req, res) => {
   );
 });
 
-viewsRouter.use(
-  "/adminProductDetail/:productId/updateProduct",
-  serveStatic("updateProduct")
-);
-
 viewsRouter.use("/admin/adminOrder", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/admin/adminOrder/adminOrder.html")
