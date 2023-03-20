@@ -131,7 +131,7 @@ const drawProduct = async () => {
   });
 };
 
-//localStorage 저장하기
+//장바구니 localStorage에 저장하기
 const addCart = (id) => {
   const size = sizeTag.options[sizeTag.selectedIndex].text;
   const color = colorTag.options[colorTag.selectedIndex].text;
