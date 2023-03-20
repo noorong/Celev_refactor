@@ -163,7 +163,7 @@ const buyNow = () => {
   product.selectSize = size;
   product.selectColor = color;
   product.quantity = 1;
-  localStorage.removeItem("buyNowProducts");
+  // localStorage.removeItem("buyNowProducts");
   const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
   products.push(product);
   localStorage.setItem("buyNowProducts", JSON.stringify(products));
@@ -189,9 +189,6 @@ ref.buyButttonTag.addEventListener(
   "click",
   () => (location.href = `/order_now`)
 );
-
-// Header&Footer
-const body = document.querySelector(".body");
 
 let randomNum = Math.floor(Math.random() * 10);
 let imgName = [

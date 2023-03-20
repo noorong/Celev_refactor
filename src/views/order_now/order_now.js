@@ -4,9 +4,9 @@ import {
   getToday,
   validateEmail,
 } from "../utils/useful-functions.js";
-// import { addCommas, checkLogin } from "../useful-functions";
 
 let cart = JSON.parse(localStorage.getItem("buyNowProducts"));
+
 const inputnameTag = document.querySelector("#fullNameInput");
 const addressTag = document.querySelector("#addressInput");
 const emailTag = document.querySelector("#emailInput");
