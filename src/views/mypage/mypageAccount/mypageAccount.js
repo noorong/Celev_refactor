@@ -26,7 +26,7 @@ async function addAllEvents() {
   addressTag.innerText = `${address}`;
 }
 function update() {
-  window.location.assign("/mypage/Update");
+  window.location.assign("/mypage/accountUpdate");
 }
 
 updateBtn.addEventListener("click", update);

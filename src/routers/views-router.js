@@ -30,8 +30,8 @@ viewsRouter.use("/mypage/mypageAccount", (req, res) => {
     path.join(__dirname, "../views/mypage/mypageAccount/mypageAccount.html")
   );
 });
-viewsRouter.use("/mypage/Update", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/Update/Update.html"));
+viewsRouter.use("/mypage/accountUpdate", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/mypage/accountUpdate/accountUpdate.html"));
 });
 viewsRouter.use("/mypage/mypageCart", (req, res) => {
   res.sendFile(
