@@ -120,10 +120,9 @@ viewsRouter.use("/notice/postDetail/:postNo", (req, res) => {
   );
 });
 
-viewsRouter.use(
-  "/notice/postEdit/:postNo",
-  serveStatic("../views/notice/postEdit/postEdit.html")
-);
+viewsRouter.use("/notice/postEdit/:postNo", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/notice/postEdit/postEdit.html"));
+});
 
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함
 viewsRouter.use("/", serveStatic(""));
