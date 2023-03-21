@@ -48,7 +48,7 @@ async function insertPostElement() {
     }
 
     function moveToPost() {
-      window.location.assign(`/notice/postDetail/${postNo}`);
+      window.location.assign(`/notice/noticeDetail/${postNo}`);
     }
   }
 }

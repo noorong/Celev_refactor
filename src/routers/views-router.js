@@ -110,18 +110,22 @@ viewsRouter.use("/adminProductDetail/:productId/updateProduct", (req, res) => {
 //notice
 viewsRouter.use("/notice", serveStatic("notice"));
 
-viewsRouter.use("/notice/addPost", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/notice/addPost/addPost.html"));
-});
-
-viewsRouter.use("/notice/postDetail/:postNo", (req, res) => {
+viewsRouter.use("/notice/addNotice", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/notice/postDetail/postDetail.html")
+    path.join(__dirname, "../views/notice/addNotice/addNotice.html")
   );
 });
 
-viewsRouter.use("/notice/postEdit/:postNo", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/notice/postEdit/postEdit.html"));
+viewsRouter.use("/notice/noticeDetail/:postNo", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/notice/noticeDetail/noticeDetail.html")
+  );
+});
+
+viewsRouter.use("/notice/noticeEdit/:postNo", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/notice/noticeEdit/noticeEdit.html")
+  );
 });
 
 // views 폴더의 최상단 파일인 rabbit.png, api.js 등을 쓸 수 있게 함

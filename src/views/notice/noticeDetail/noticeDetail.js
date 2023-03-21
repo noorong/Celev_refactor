@@ -64,7 +64,7 @@ async function insertPostElement() {
     const { password } = data;
 
     if (modalInput[0].value === password) {
-      window.location.assign(`/notice/postEdit/${postNo}`);
+      window.location.assign(`/notice/noticeEdit/${postNo}`);
       closeModal();
     } else {
       alert("비밀번호가 틀렸습니다");
