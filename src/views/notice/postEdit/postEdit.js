@@ -1,7 +1,7 @@
-import * as Api from "/api.js";
+import * as Api from "../../api.js";
 
-const editBtn = document.getElementById('editBtn');
-const titleInput = document.getElementById('titleInput');
+const editBtn = document.getElementById("editBtn");
+const titleInput = document.getElementById("titleInput");
 const userInput = document.getElementById("userInput");
 const passwordInput = document.getElementById("passwordInput");
 const contentInput = document.getElementById("contentInput");
@@ -10,59 +10,58 @@ insertEditElement();
 
 let postData;
 async function insertEditElement() {
-    const postNo = window.location.pathname.split("/")[2];
+  const postNo = window.location.pathname.split("/")[3];
 
-    postData = await Api.get(`/api/posts/${postNo}`);
+  postData = await Api.get(`/api/posts/${postNo}`);
 
-    const {title, user, password, content} = postData;
+  const { title, user, password, content } = postData;
 
-    titleInput.value = title;
-    userInput.value = user;
-    passwordInput.value = password;
-    contentInput.value = content;
+  titleInput.value = title;
+  userInput.value = user;
+  passwordInput.value = password;
+  contentInput.value = content;
 
-    editBtn.addEventListener("click", savePostData);
-    
+  editBtn.addEventListener("click", savePostData);
 }
 
 async function savePostData(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const postNo = window.location.pathname.split("/")[2];
-    const title = titleInput.value;
-    const user = userInput.value;
-    const password = passwordInput.value;
-    const content = contentInput.value;
-    
-    const data = {postNo};
+  const postNo = window.location.pathname.split("/")[2];
+  const title = titleInput.value;
+  const user = userInput.value;
+  const password = passwordInput.value;
+  const content = contentInput.value;
 
-    if(title !== postData.title) {
-        data.title = title;
-    }
+  const data = { postNo };
 
-    if(user !== postData.user) {
-        data.user = user;
-    }
-    
-    if(password !== postData.password) {
-        data.password = password;
-    }
+  if (title !== postData.title) {
+    data.title = title;
+  }
 
-    if(content != postData.content) {
-        data.content = content;
-    }
+  if (user !== postData.user) {
+    data.user = user;
+  }
 
-    const toUpdate = Object.keys(data);
-    if(toUpdate.length === 1) {
-        alert("수정한 정보가 없습니다.")
-    }
+  if (password !== postData.password) {
+    data.password = password;
+  }
 
-    try{
-        const {postNo} = postData;
-        await Api.patch("/api/posts", postNo, data);
-        alert("게시물이 수정되었습니다.")
-        window.location.assign("/notice");
-    } catch(err) {
-        alert(`게시물 수정 과정에서 오류가 발생하였습니다: ${err}`)
-    }
+  if (content != postData.content) {
+    data.content = content;
+  }
+
+  const toUpdate = Object.keys(data);
+  if (toUpdate.length === 1) {
+    alert("수정한 정보가 없습니다.");
+  }
+
+  try {
+    const { postNo } = postData;
+    await Api.patch("/api/posts", postNo, data);
+    alert("게시물이 수정되었습니다.");
+    window.location.assign("/notice");
+  } catch (err) {
+    alert(`게시물 수정 과정에서 오류가 발생하였습니다: ${err}`);
+  }
 }
