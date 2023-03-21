@@ -4,6 +4,10 @@ import {
   getToday,
   validateEmail,
 } from "../utils/useful-functions.js";
+import { header } from "../utils/header.js";
+import { footer } from "../utils/footer.js";
+header();
+footer();
 
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
 

@@ -13,7 +13,6 @@ viewsRouter.use("/guest", serveStatic("guest"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/order_now", serveStatic("order_now"));
 viewsRouter.use("/order", serveStatic("order"));
-viewsRouter.use("/notice", serveStatic("notice"));
 viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
 
 //mypage
@@ -31,7 +30,9 @@ viewsRouter.use("/mypage/mypageAccount", (req, res) => {
   );
 });
 viewsRouter.use("/mypage/accountUpdate", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/mypage/accountUpdate/accountUpdate.html"));
+  res.sendFile(
+    path.join(__dirname, "../views/mypage/accountUpdate/accountUpdate.html")
+  );
 });
 viewsRouter.use("/mypage/mypageCart", (req, res) => {
   res.sendFile(
@@ -106,12 +107,17 @@ viewsRouter.use("/adminProductDetail/:productId/updateProduct", (req, res) => {
   );
 });
 
+//notice
+viewsRouter.use("/notice", serveStatic("notice"));
+
 viewsRouter.use("/notice/veiwList", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/notice/view.html"));
 });
 
-viewsRouter.use("/notice/write", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/notice/write.html"));
+viewsRouter.use("/notice/noticePost", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/notice/noticePost/noticePost.html")
+  );
 });
 
 viewsRouter.use("/notice/:postNo", (req, res) => {
