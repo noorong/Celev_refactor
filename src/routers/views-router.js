@@ -98,11 +98,11 @@ viewsRouter.use("/admin/adminReview", (req, res) => {
   );
 });
 
-viewsRouter.use("/adminProductDetail/:productId/updateProduct", (req, res) => {
+viewsRouter.use("/productDetail/:productId/updateProduct", (req, res) => {
   res.sendFile(
     path.join(
       __dirname,
-      "../views/admin/adminProductDetail/updateProduct/updateProduct.html"
+      "../views/productDetail/updateProduct/updateProduct.html"
     )
   );
 });

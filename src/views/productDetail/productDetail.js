@@ -1,16 +1,10 @@
 import * as Api from "/api.js";
-import { footer } from "../utils/footer.js";
-import { header } from "../utils/header.js";
+import { footer } from "../../utils/footer.js";
+import { header } from "../../utils/header.js";
 header();
 footer();
 
-const productEdit = document.querySelector(".product_edit");
 const deleteButton = document.querySelector(".product_delete");
-
-function moveToadminProductUpdate() {
-  window.location.assign("/updateProduct");
-}
-
 const productId = window.location.pathname.split("/")[2];
 
 async function deleteProduct() {
@@ -28,7 +22,6 @@ async function deleteProduct() {
 }
 
 deleteButton.addEventListener("click", deleteProduct);
-productEdit.addEventListener("click", moveToadminProductUpdate);
 
 const ref = {
   sizeBlockTag: document.querySelector(".size_block"),
