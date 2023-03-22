@@ -1,6 +1,9 @@
-// import { name } from "ejs";
-// import { convertToNumber } from "../utils/useful-functions.js";
 import * as Api from "/api.js";
+import { footer } from "../utils/footer.js";
+import { header } from "../utils/header.js";
+header();
+footer();
+
 const productEdit = document.querySelector(".product_edit");
 const deleteButton = document.querySelector(".product_delete");
 
