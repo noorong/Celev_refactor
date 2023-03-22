@@ -1,5 +1,9 @@
 import { checkAdmin } from "../utils/useful-functions.js";
 import * as Api from "/api.js";
+import { footer } from "../utils/footer.js";
+import { header } from "../utils/header.js";
+header();
+footer();
 
 // const adminCategory = document.querySelector("#adminCategory_button");
 const adminProduct = document.querySelector("#adminProduct_button");
