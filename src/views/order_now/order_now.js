@@ -9,6 +9,9 @@ import { footer } from "../utils/footer.js";
 header();
 footer();
 
+const orderWayCheck = window.location.pathname;
+console.log(orderWayCheck);
+
 let cart = JSON.parse(localStorage.getItem("buyNowProducts"));
 
 const inputnameTag = document.querySelector("#fullNameInput");
@@ -53,7 +56,7 @@ if (token) {
         const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
         alert(`주문이 완료 되었습니다.`);
-        localStorage.clear();
+        localStorage.removeItem("buyNowProducts");
         if (result) {
           window.location.href = "/";
         }
@@ -162,6 +165,7 @@ async function insertUserData() {
 }
 
 async function insertOrderElement() {
+  console.log("바로구매");
   let cost = 0;
   cart.forEach((product) => {
     const orderForm = document.querySelector(".total");

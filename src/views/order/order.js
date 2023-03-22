@@ -9,6 +9,9 @@ import { footer } from "../utils/footer.js";
 header();
 footer();
 
+const orderWayCheck = window.location.pathname;
+console.log(orderWayCheck);
+
 let cart = JSON.parse(localStorage.getItem("orderProducts"));
 
 const inputnameTag = document.querySelector("#fullNameInput");
@@ -165,6 +168,7 @@ async function insertUserData() {
 }
 
 async function insertOrderElement() {
+  console.log("장바구니");
   let cost = 0;
   cart.forEach((product) => {
     const orderForm = document.querySelector(".total");

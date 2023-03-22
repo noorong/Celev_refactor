@@ -85,7 +85,7 @@ async function deleteOrderList(event, orderNumber) {
     try {
       await Api.delete(`/api/orders/${orderNumber}`);
       alert("주문내역이 삭제되었습니다.");
-      window.location.href = `/myPageOrderList/${userEmail}`;
+      window.location.href = `/mypage/myPageOrderList/${userEmail}`;
     } catch {
       (err) => {
         console.log(err);
