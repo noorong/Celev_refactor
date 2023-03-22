@@ -27,12 +27,6 @@ async function addAllEvent() {
   roleTag.innerText = `${role}`;
 }
 
-// function moveToadminCategory() {
-//   window.location.assign("/admin/adminCategory");
-// }
-
-// adminCategory.addEventListener("click", moveToadminCategory);
-
 function moveToadminProductList() {
   window.location.assign("/admin/adminProductList");
 }
@@ -55,4 +49,4 @@ function moveToadminReview() {
   window.location.assign("/admin/adminReview");
 }
 
-adminMember.addEventListener("click", moveToadminReview);
+adminReivew.addEventListener("click", moveToadminReview);

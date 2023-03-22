@@ -2,8 +2,8 @@ import { searchProduct } from "./searching.js";
 
 export function header() {
   window.addEventListener("load", async () => {
-    const body = document.querySelector(".body");
-    body.insertAdjacentHTML(
+    const main = document.querySelector(".main");
+    main.insertAdjacentHTML(
       "afterBegin",
       `
     <header class="header">
