@@ -11,7 +11,7 @@ viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
 viewsRouter.use("/guest", serveStatic("guest"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
-viewsRouter.use("/order_now", serveStatic("order_now"));
+viewsRouter.use("/order_now", serveStatic("order"));
 viewsRouter.use("/order", serveStatic("order"));
 viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
 

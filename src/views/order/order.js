@@ -10,9 +10,15 @@ header();
 footer();
 
 const orderWayCheck = window.location.pathname;
-console.log(orderWayCheck);
+let cart = "";
 
-let cart = JSON.parse(localStorage.getItem("orderProducts"));
+if (orderWayCheck === "/order/") {
+  cart = JSON.parse(localStorage.getItem("orderProducts"));
+  console.log(cart);
+} else if (orderWayCheck === "/order_now/")
+  cart = JSON.parse(localStorage.getItem("buyNowProducts"));
+
+console.log(cart);
 
 const inputnameTag = document.querySelector("#fullNameInput");
 const addressTag = document.querySelector("#addressInput");
@@ -30,7 +36,7 @@ if (token) {
     e.preventDefault();
     let payments = document.getElementsByName("payment");
     let payment = null; // 체크된 값(checked value)
-    //const submitBtn = document.querySelector("#submitButton");
+
     for (let i = 0; i < payments.length; i++) {
       if (payments[i].checked == true) {
         payment = payments[i].value;
@@ -171,13 +177,14 @@ async function insertOrderElement() {
   console.log("장바구니");
   let cost = 0;
   cart.forEach((product) => {
+    console.log(product);
     const orderForm = document.querySelector(".total");
     const name = product.name;
-    const price = product.totalPrice;
+    const price = product.totalPrice || product.price;
     const img = product.img;
     const size = product.selectSize;
     const color = product.selectColor;
-    const count = product.totalCount;
+    const count = product.totalCount || 1;
     orderForm.insertAdjacentHTML(
       "beforeend",
       `

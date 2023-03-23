@@ -31,7 +31,7 @@ if (token) {
     e.preventDefault();
     let payments = document.getElementsByName("payment");
     let payment = null; // 체크된 값(checked value)
-    //const submitBtn = document.querySelector("#submitButton");
+
     for (let i = 0; i < payments.length; i++) {
       if (payments[i].checked == true) {
         payment = payments[i].value;
@@ -81,13 +81,14 @@ if (token) {
       }
     }
     const check = confirm("결제 진행 하시겠습니까?");
+
     //order 삽입
     if (check) {
       try {
         const orderNumber = Number(
           String(getToday()) + String(Math.random() * 1000000000)
         );
-        const email = emailTag.value;
+        // const email = emailTag.value;
         const payMethod = payment;
         const products = cart;
         const cost = parseInt(

@@ -159,7 +159,7 @@ const buyNow = () => {
   product.selectSize = size;
   product.selectColor = color;
   product.quantity = 1;
-  // localStorage.removeItem("buyNowProducts");
+  localStorage.removeItem("buyNowProducts");
   const products = JSON.parse(localStorage.getItem("buyNowProducts")) || [];
   products.push(product);
   localStorage.setItem("buyNowProducts", JSON.stringify(products));
