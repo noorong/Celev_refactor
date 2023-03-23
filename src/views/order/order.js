@@ -26,12 +26,28 @@ const emailTag = document.querySelector("#emailInput");
 const phoneNumTag = document.querySelector("#phoneNumberInput");
 const token = sessionStorage.getItem("token");
 
+//회원의 경우
 if (token) {
+  //바로 주문자정보 입력, 주문 상품 렌더링
   checkLogin();
   insertUserData();
   insertOrderElement();
 
+  let userData;
+  async function insertUserData() {
+    userData = await Api.get("/api/user");
+
+    const { email, name, phoneNum, address } = userData;
+
+    inputnameTag.value = name;
+    addressTag.value = address;
+    emailTag.value = email;
+    phoneNumTag.value = phoneNum;
+  }
+
+  //주문하기 누르면 결제수단 확인후 결제확인창이 뜸
   document.querySelector(".payButton").addEventListener("click", handleSubmit);
+
   async function handleSubmit(e) {
     e.preventDefault();
     let payments = document.getElementsByName("payment");
@@ -44,9 +60,10 @@ if (token) {
     }
     const check = confirm("결제 진행 하시겠습니까?");
 
+    //회원이 결제 확인창에서 예를 선택하는 경우
     if (check) {
       try {
-        const orderNumber = Number(
+        const orderNumber = parseInt(
           String(getToday()) + String(Math.random() * 1000000000)
         );
         const email = emailTag.value;
@@ -69,10 +86,12 @@ if (token) {
         console.error(err.stack);
         alert(`${err.message}`);
       }
-    } else {
     }
   }
-} else {
+}
+//비회원 결제
+else {
+  //주문 상품 렌더링
   insertOrderElement();
   document.querySelector(".payButton").addEventListener("click", handleSubmit);
 
@@ -87,10 +106,10 @@ if (token) {
     }
     const check = confirm("결제 진행 하시겠습니까?");
 
-    //order 삽입
+    //비회원 결제 확인창, 예를 선택하는 경우, 빈칸없는지 확인
     if (check) {
       try {
-        const orderNumber = Number(
+        const orderNumber = parseInt(
           String(getToday()) + String(Math.random() * 10000000000)
         );
         const payMethod = payment;
@@ -101,7 +120,6 @@ if (token) {
             .innerHTML.replace(/(,|개|원)/g, "")
         );
         const count = cart.length;
-        const data = { orderNumber, products, cost, count, payMethod, email };
 
         //user 정보 확인
         const name = inputnameTag.value;
@@ -147,6 +165,7 @@ if (token) {
           alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`);
         }
 
+        const data = { orderNumber, products, cost, count, payMethod, email };
         const result = await Api.post("/api/orders", data);
 
         if (result) {
@@ -159,18 +178,6 @@ if (token) {
     } else {
     }
   }
-}
-
-let userData;
-async function insertUserData() {
-  userData = await Api.get("/api/user");
-
-  const { email, name, phoneNum, address } = userData;
-
-  inputnameTag.value = name;
-  addressTag.value = address;
-  emailTag.value = email;
-  phoneNumTag.value = phoneNum;
 }
 
 async function insertOrderElement() {

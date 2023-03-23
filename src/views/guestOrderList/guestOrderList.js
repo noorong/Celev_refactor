@@ -1,3 +1,8 @@
+import { footer } from "../../utils/footer.js";
+import { header } from "../../utils/header.js";
+header();
+footer();
+
 const section = document.querySelector(".title");
 const product = document.querySelector(".product_name");
 const orderNumber = window.location.pathname.split("/")[2];
@@ -6,22 +11,21 @@ insertOrderListElement();
 
 let orderLists = {};
 async function insertOrderListElement() {
-
   const res = await fetch(`/api/orders/${orderNumber}`);
   orderLists = await res.json();
-  const orderList = orderLists.products
-  
-      orderList.forEach((productList) => {
-        const name = productList.name;
-        const img = productList.img;
-        const orderNumber = orderLists.orderNumber;
-        const num = productList.totalCount;
-        const orderDate = productList.updatedAt.substr(0, 10);
-        const price = productList.totalPrice;
-        const status = orderLists.status;
-        section.insertAdjacentHTML(
-          "afterend",
-          `<div class="content">
+  const orderList = orderLists.products;
+
+  orderList.forEach((productList) => {
+    const name = productList.name;
+    const img = productList.img;
+    const orderNumber = orderLists.orderNumber;
+    const num = productList.totalCount;
+    const orderDate = productList.updatedAt.substr(0, 10);
+    const price = productList.totalPrice;
+    const status = orderLists.status;
+    section.insertAdjacentHTML(
+      "afterend",
+      `<div class="content">
               <div class="first">
                 <img class="product_img" src="${img}"/>
                 <div class="product_script">
@@ -38,6 +42,6 @@ async function insertOrderListElement() {
               </div>
               <div class="status">${status}</div>
             </div>`
-        );
-    });
+    );
+  });
 }
