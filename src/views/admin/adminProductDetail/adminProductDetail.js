@@ -1,6 +1,6 @@
 import * as Api from "/api.js";
-import { header } from "../../utils/header";
-import { footer } from "../../utils/footer";
+import { header } from "../../utils/header.js";
+import { footer } from "../../utils/footer.js";
 header();
 footer();
 
@@ -62,7 +62,7 @@ function addProduct() {
 }
 
 function moveToadminProductUpdate() {
-  location.href = `/adminProductDetail/${productId}/updateProduct`;
+  location.href = `/productDetail/${productId}/updateProduct`;
 }
 
 async function deleteProduct() {

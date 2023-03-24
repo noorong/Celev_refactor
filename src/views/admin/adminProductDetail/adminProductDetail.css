@@ -326,8 +326,6 @@
   align-items: center;
   height: 150px;
   background: #f4f4f4;
-
-  padding: 0 130px;
 }
 .header .header_logo a {
   display: flex;
