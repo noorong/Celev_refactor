@@ -116,9 +116,9 @@ viewsRouter.use("/productDetail/:productId/updateProduct", (req, res) => {
 //notice
 viewsRouter.use("/notice", serveStatic("notice"));
 
-viewsRouter.use("/notice/addNotice", (req, res) => {
+viewsRouter.use("/notice/noticeAdd", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/notice/addNotice/addNotice.html")
+    path.join(__dirname, "../views/notice/noticeAdd/noticeAdd.html")
   );
 });
 
