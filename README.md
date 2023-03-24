@@ -86,188 +86,183 @@ PW: 123123123
 ## 🗂 디렉토리 구조
 
 ```
-Celev_refactor
+Ce1ev_Refactor
 ├─ src
-│ ├─ app.js
-│ ├─ middlewares
-│ │ ├─ admin-only.js
-│ │ ├─ error-handler.js
-│ │ ├─ index.js
-│ │ └─ login-required.js
-│ ├─ models
-│ │ ├─ index.js
-│ │ ├─ order-model.js
-│ │ ├─ post-model.js
-│ │ ├─ product-model.js
-│ │ ├─ review-model.js
-│ │ ├─ schemas
-│ │ │ ├─ order.js
-│ │ │ ├─ post.js
-│ │ │ ├─ product.js
-│ │ │ ├─ review.js
-│ │ │ ├─ SelectedProductSchema.js
-│ │ │ ├─ shoppingCart.js
-│ │ │ └─ user.js
-│ │ ├─ SelectedProduct-model.js
-│ │ └─ user-model.js
-│ ├─ routers
-│ │ ├─ index.js
-│ │ ├─ mypage-router.js
-│ │ ├─ order-router.js
-│ │ ├─ post-router.js
-│ │ ├─ product-router.js
-│ │ ├─ SelectedProduct-model.js
-│ │ ├─ user-router.js
-│ │ └─ views-router.js
-│ ├─ services
-│ │ ├─ index.js
-│ │ ├─ order-service.js
-│ │ ├─ post-service.js
-│ │ ├─ product-service.js
-│ │ ├─ review-service.js
-│ │ ├─ selectedProduct-service.js
-│ │ └─ user-service.js
-│ └─ views
-│ ├─ admin
-│ │ ├─ addProduct
-│ │ │ ├─ addProduct.css
-│ │ │ ├─ addProduct.html
-│ │ │ └─ addProduct.js
-│ │ ├─ admin.css
-│ │ ├─ admin.html
-│ │ ├─ admin.js
-│ │ ├─ adminMember
-│ │ │ ├─ adminMember.css
-│ │ │ ├─ adminMember.html
-│ │ │ └─ adminMember.js
-│ │ ├─ adminOrder
-│ │ │ ├─ adminOrder.css
-│ │ │ ├─ adminOrder.html
-│ │ │ └─ adminOrder.js
-│ │ ├─ adminProductDetail
-│ │ │ ├─ adminProductDetail.css
-│ │ │ ├─ adminProductDetail.html
-│ │ │ ├─ adminProductDetail.js
-│ │ │ ├─ changeHeader.js
-│ │ │ ├─ Footer.js
-│ │ │ ├─ HeaderFooter.css
-│ │ │ └─ reset.css
-│ │ ├─ adminProductList
-│ │ │ ├─ adminProductList.css
-│ │ │ ├─ adminProductList.html
-│ │ │ └─ adminProductList.js
-│ │ └─ adminReview
-│ │ ├─ adminReview.css
-│ │ ├─ adminReview.html
-│ │ └─ adminReview.js
-│ ├─ api.js
-│ ├─ aws-s3.js
-│ ├─ guest
-│ │ ├─ guest.css
-│ │ ├─ guest.html
-│ │ └─ guest.js
-│ ├─ guestOrderList
-│ │ ├─ guestOrderList.css
-│ │ ├─ guestOrderList.html
-│ │ └─ guestOrderList.js
-│ ├─ home
-│ │ ├─ home.css
-│ │ ├─ home.html
-│ │ ├─ home.js
-│ │ └─ home_bundle.js
-│ ├─ image
-│ │ ├─ celev_logo.PNG
-│ │ ├─ left.png
-│ │ ├─ like.png
-│ │ ├─ like_hover.png
-│ │ ├─ login.PNG
-│ │ ├─ mainPage.PNG
-│ │ ├─ profile.png
-│ │ ├─ register.gif
-│ │ ├─ register.PNG
-│ │ ├─ right.png
-│ │ ├─ search_img.png
-│ │ ├─ slide1.png
-│ │ ├─ slide2.png
-│ │ ├─ slide3.png
-│ │ ├─ slide4.png
-│ │ └─ 뉴진스01.jpg
-│ ├─ login
-│ │ ├─ login.css
-│ │ ├─ login.html
-│ │ └─ login.js
-│ ├─ mypage
-│ │ ├─ accountUpdate
-│ │ │ ├─ accountUpdate.css
-│ │ │ ├─ accountUpdate.html
-│ │ │ └─ accountUpdate.js
-│ │ ├─ mypage.css
-│ │ ├─ mypage.html
-│ │ ├─ mypage.js
-│ │ ├─ mypageAccount
-│ │ │ ├─ mypageAccount.css
-│ │ │ ├─ mypageAccount.html
-│ │ │ └─ mypageAccount.js
-│ │ ├─ mypageCart
-│ │ │ ├─ mypageCart.css
-│ │ │ ├─ mypageCart.html
-│ │ │ └─ mypageCart.js
-│ │ ├─ mypageOrderList
-│ │ │ ├─ mypageOrderList.css
-│ │ │ ├─ mypageOrderList.html
-│ │ │ └─ mypageOrderList.js
-│ │ ├─ mypageReview
-│ │ │ ├─ mypageReview.css
-│ │ │ ├─ mypageReview.html
-│ │ │ └─ mypageReview.js
-│ │ └─ mypageWithdrawal
-│ │ ├─ mypageWithdrawal.css
-│ │ ├─ mypageWithdrawal.html
-│ │ └─ mypageWithdrawal.js
-│ ├─ notice
-│ │ ├─ addNotice
-│ │ │ ├─ addNotice.html
-│ │ │ └─ addNotice.js
-│ │ ├─ notice.css
-│ │ ├─ notice.html
-│ │ ├─ notice.js
-│ │ ├─ noticeDetail
-│ │ │ ├─ noticeDetail.html
-│ │ │ └─ noticeDetail.js
-│ │ └─ noticeEdit
-│ │ ├─ footer.js
-│ │ ├─ headerfooter.css
-│ │ ├─ noticeEdit.css
-│ │ ├─ noticeEdit.html
-│ │ └─ noticeEdit.js
-│ ├─ order
-│ │ ├─ order.css
-│ │ ├─ order.html
-│ │ ├─ order.js
-│ │ └─ order_now.js
-│ ├─ productDetail
-│ │ ├─ productDetail.css
-│ │ ├─ productDetail.html
-│ │ ├─ productDetail.js
-│ │ └─ updateProduct
-│ │ ├─ updateProduct.css
-│ │ ├─ updateProduct.html
-│ │ └─ updateProduct.js
-│ ├─ register
-│ │ ├─ register.css
-│ │ ├─ register.html
-│ │ └─ register.js
-│ ├─ style
-│ │ ├─ HeaderFooter.css
-│ │ ├─ reset.css
-│ │ └─ slideStyle.css
-│ └─ utils
-│ ├─ category.js
-│ ├─ footer.js
-│ ├─ header.js
-│ ├─ searching.js
-│ ├─ slideScript.js
-│ └─ useful-functions.js
+│  ├─ app.js
+│  ├─ middlewares
+│  │  ├─ admin-only.js
+│  │  ├─ error-handler.js
+│  │  ├─ index.js
+│  │  └─ login-required.js
+│  ├─ models
+│  │  ├─ index.js
+│  │  ├─ order-model.js
+│  │  ├─ post-model.js
+│  │  ├─ product-model.js
+│  │  ├─ review-model.js
+│  │  ├─ schemas
+│  │  │  ├─ order.js
+│  │  │  ├─ post.js
+│  │  │  ├─ product.js
+│  │  │  ├─ review.js
+│  │  │  ├─ SelectedProductSchema.js
+│  │  │  ├─ shoppingCart.js
+│  │  │  └─ user.js
+│  │  ├─ SelectedProduct-model.js
+│  │  └─ user-model.js
+│  ├─ routers
+│  │  ├─ index.js
+│  │  ├─ mypage-router.js
+│  │  ├─ order-router.js
+│  │  ├─ post-router.js
+│  │  ├─ product-router.js
+│  │  ├─ SelectedProduct-model.js
+│  │  ├─ user-router.js
+│  │  └─ views-router.js
+│  ├─ services
+│  │  ├─ index.js
+│  │  ├─ order-service.js
+│  │  ├─ post-service.js
+│  │  ├─ product-service.js
+│  │  ├─ review-service.js
+│  │  ├─ selectedProduct-service.js
+│  │  └─ user-service.js
+│  └─ views
+│     ├─ admin
+│     │  ├─ addProduct
+│     │  │  ├─ addProduct.css
+│     │  │  ├─ addProduct.html
+│     │  │  └─ addProduct.js
+│     │  ├─ admin.css
+│     │  ├─ admin.html
+│     │  ├─ admin.js
+│     │  ├─ adminMember
+│     │  │  ├─ adminMember.css
+│     │  │  ├─ adminMember.html
+│     │  │  └─ adminMember.js
+│     │  ├─ adminOrder
+│     │  │  ├─ adminOrder.css
+│     │  │  ├─ adminOrder.html
+│     │  │  └─ adminOrder.js
+│     │  ├─ adminProductDetail
+│     │  │  ├─ adminProductDetail.css
+│     │  │  ├─ adminProductDetail.html
+│     │  │  └─ adminProductDetail.js
+│     │  ├─ adminProductList
+│     │  │  ├─ adminProductList.css
+│     │  │  ├─ adminProductList.html
+│     │  │  └─ adminProductList.js
+│     │  └─ adminReview
+│     │     ├─ adminReview.css
+│     │     ├─ adminReview.html
+│     │     └─ adminReview.js
+│     ├─ api.js
+│     ├─ aws-s3.js
+│     ├─ guest
+│     │  ├─ guest.css
+│     │  ├─ guest.html
+│     │  ├─ guest.js
+│     │  └─ guestOrderList
+│     │     ├─ guestOrderList.css
+│     │     ├─ guestOrderList.html
+│     │     └─ guestOrderList.js
+│     ├─ home
+│     │  ├─ home.css
+│     │  ├─ home.html
+│     │  ├─ home.js
+│     │  └─ home_bundle.js
+│     ├─ image
+│     │  ├─ celev_logo.PNG
+│     │  ├─ left.png
+│     │  ├─ like.png
+│     │  ├─ like_hover.png
+│     │  ├─ login.PNG
+│     │  ├─ mainPage.PNG
+│     │  ├─ profile.png
+│     │  ├─ register.gif
+│     │  ├─ register.PNG
+│     │  ├─ right.png
+│     │  ├─ search_img.png
+│     │  ├─ slide1.png
+│     │  ├─ slide2.png
+│     │  ├─ slide3.png
+│     │  ├─ slide4.png
+│     │  └─ 뉴진스01.jpg
+│     ├─ login
+│     │  ├─ login.css
+│     │  ├─ login.html
+│     │  └─ login.js
+│     ├─ mypage
+│     │  ├─ accountUpdate
+│     │  │  ├─ accountUpdate.css
+│     │  │  ├─ accountUpdate.html
+│     │  │  └─ accountUpdate.js
+│     │  ├─ mypage.css
+│     │  ├─ mypage.html
+│     │  ├─ mypage.js
+│     │  ├─ mypageAccount
+│     │  │  ├─ mypageAccount.css
+│     │  │  ├─ mypageAccount.html
+│     │  │  └─ mypageAccount.js
+│     │  ├─ mypageCart
+│     │  │  ├─ mypageCart.css
+│     │  │  ├─ mypageCart.html
+│     │  │  └─ mypageCart.js
+│     │  ├─ mypageOrderList
+│     │  │  ├─ mypageOrderList.css
+│     │  │  ├─ mypageOrderList.html
+│     │  │  └─ mypageOrderList.js
+│     │  ├─ mypageReview
+│     │  │  ├─ mypageReview.css
+│     │  │  ├─ mypageReview.html
+│     │  │  └─ mypageReview.js
+│     │  └─ mypageWithdrawal
+│     │     ├─ mypageWithdrawal.css
+│     │     ├─ mypageWithdrawal.html
+│     │     └─ mypageWithdrawal.js
+│     ├─ notice
+│     │  ├─ addNotice
+│     │  │  ├─ addNotice.html
+│     │  │  └─ addNotice.js
+│     │  ├─ notice.css
+│     │  ├─ notice.html
+│     │  ├─ notice.js
+│     │  ├─ noticeDetail
+│     │  │  ├─ noticeDetail.html
+│     │  │  └─ noticeDetail.js
+│     │  └─ noticeEdit
+│     │     ├─ footer.js
+│     │     ├─ headerfooter.css
+│     │     ├─ noticeEdit.css
+│     │     ├─ noticeEdit.html
+│     │     └─ noticeEdit.js
+│     ├─ order
+│     │  ├─ order.css
+│     │  ├─ order.html
+│     │  ├─ order.js
+│     │  └─ order_now.js
+│     ├─ productDetail
+│     │  ├─ productDetail.css
+│     │  ├─ productDetail.html
+│     │  ├─ productDetail.js
+│     │  └─ updateProduct
+│     │     ├─ updateProduct.css
+│     │     ├─ updateProduct.html
+│     │     └─ updateProduct.js
+│     ├─ register
+│     │  ├─ register.css
+│     │  ├─ register.html
+│     │  └─ register.js
+│     ├─ style
+│     │  ├─ HeaderFooter.css
+│     │  ├─ reset.css
+│     │  └─ slideStyle.css
+│     └─ utils
+│        ├─ category.js
+│        ├─ footer.js
+│        ├─ header.js
+│        ├─ searching.js
+│        ├─ slideScript.js
+│        └─ useful-functions.js
 └─ webpack.config.js
-
 ```

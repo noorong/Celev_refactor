@@ -10,10 +10,16 @@ viewsRouter.use("/", serveStatic("home"));
 viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
 viewsRouter.use("/guest", serveStatic("guest"));
+viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/order_now", serveStatic("order"));
 viewsRouter.use("/order", serveStatic("order"));
-viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
+
+viewsRouter.use("/guest/guestOrderList/:orderNumber", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/guest/guestOrderList/guestOrderList.html")
+  );
+});
 
 //mypage
 viewsRouter.use("/mypage", serveStatic("mypage"));
