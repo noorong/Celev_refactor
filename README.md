@@ -143,8 +143,8 @@ Ce1ev_Refactor
 │     ├─ image
 │     ├─ login
 │     ├─ mypage
-│     │  ├─ accountUpdate
-│     │  ├─ mypageAccount
+│     │  ├─ accUpdate
+│     │  ├─ account
 │     │  ├─ mypageCart
 │     │  ├─ mypageOrderList
 │     │  ├─ mypageReview

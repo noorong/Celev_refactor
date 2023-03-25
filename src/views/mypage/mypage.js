@@ -5,7 +5,7 @@ import { footer } from "../utils/footer.js";
 footer();
 header();
 
-const mypageAccount = document.querySelector("#mypageAccount_button");
+const account = document.querySelector("#account_button");
 const mypageOrderList = document.querySelector("#mypageOrderList_button");
 const mypageCart = document.querySelector("#mypageCart_button");
 const mypageReview = document.querySelector("#mypageReview_button");
@@ -26,11 +26,11 @@ async function addAllEvent() {
   emailTag.innerText = `${email}`;
   roleTag.innerText = `${role}`;
 
-  function moveTomypageAccount() {
-    window.location.assign("/mypage/mypageAccount");
+  function moveToaccount() {
+    window.location.assign("/mypage/account");
   }
 
-  mypageAccount.addEventListener("click", moveTomypageAccount);
+  account.addEventListener("click", moveToaccount);
 
   function moveTomypageOrderList() {
     window.location.assign(`/mypage/myPageOrderList/${email}`);

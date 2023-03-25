@@ -1,5 +1,5 @@
 import * as Api from "/api.js";
-import { checkLogin } from "../../utils/useful-functions.js";
+import { checkLogin } from "../../../utils/useful-functions.js";
 
 const inputnameTag = document.querySelector("#fullNameInput");
 const emailTag = document.querySelector("#emailInput");
