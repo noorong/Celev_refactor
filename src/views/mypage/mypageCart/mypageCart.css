@@ -7,7 +7,7 @@
 .section {
   flex: 1;
   width: 1000px;
-  margin: 110px auto 50px auto;
+  margin: 110px auto;
 }
 
 .section h1 {
@@ -120,16 +120,17 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .total_box {
   width: 1000px;
   height: auto;
   display: flex;
-  gap: 50px;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 100px;
   justify-content: center;
   align-content: center;
+  gap: 50px;
+  
+  margin: auto;
+  margin-top: 100px;
 }
 
 .total_box .totalPrice_box {
