@@ -30,14 +30,14 @@ viewsRouter.use("/mypage/mypageOrderList/:email", (req, res) => {
   );
 });
 
-viewsRouter.use("/mypage/mypageAccount", (req, res) => {
+viewsRouter.get("/mypage/account", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/mypage/mypageAccount/mypageAccount.html")
+    path.join(__dirname, "../views/mypage/account/account.html")
   );
 });
-viewsRouter.use("/mypage/accountUpdate", (req, res) => {
+viewsRouter.get("/mypage/account/accUpdate", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../views/mypage/accountUpdate/accountUpdate.html")
+    path.join(__dirname, "../views/mypage/account/accUpdate/accUpdate.html")
   );
 });
 viewsRouter.use("/mypage/mypageCart", (req, res) => {
