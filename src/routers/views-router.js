@@ -83,15 +83,6 @@ viewsRouter.get("/admin/adminProductList", (req, res) => {
   );
 });
 
-viewsRouter.get("/admin/adminProductDetail/:productId", (req, res) => {
-  res.sendFile(
-    path.join(
-      __dirname,
-      "../views/admin/adminProductDetail/adminProductDetail.html"
-    )
-  );
-});
-
 viewsRouter.use("/admin/adminOrder", (req, res) => {
   res.sendFile(
     path.join(__dirname, "../views/admin/adminOrder/adminOrder.html")

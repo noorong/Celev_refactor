@@ -59,5 +59,5 @@ async function insertProductElement() {
 async function updateProductFunc(e, product) {
   e.preventDefault();
 
-  window.location.assign(`/admin/adminProductDetail/${product.num}`);
+  window.location.assign(`/productDetail/${product.num}`);
 }
