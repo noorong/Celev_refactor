@@ -10,7 +10,6 @@ viewsRouter.use("/", serveStatic("home"));
 viewsRouter.use("/register", serveStatic("register"));
 viewsRouter.use("/login", serveStatic("login"));
 viewsRouter.use("/guest", serveStatic("guest"));
-viewsRouter.use("/guestOrderList/:orderNumber", serveStatic("guestOrderList"));
 viewsRouter.use("/productDetail/:num", serveStatic("productDetail"));
 viewsRouter.use("/order_now", serveStatic("order"));
 viewsRouter.use("/order", serveStatic("order"));
@@ -31,9 +30,7 @@ viewsRouter.use("/mypage/mypageOrderList/:email", (req, res) => {
 });
 
 viewsRouter.get("/mypage/account", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../views/mypage/account/account.html")
-  );
+  res.sendFile(path.join(__dirname, "../views/mypage/account/account.html"));
 });
 viewsRouter.get("/mypage/account/accUpdate", (req, res) => {
   res.sendFile(

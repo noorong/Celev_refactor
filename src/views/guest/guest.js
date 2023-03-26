@@ -29,7 +29,7 @@ async function handleSubmit(e) {
 
     alert("게스트 로그인이 확인되었습니다.");
 
-    window.location.href = `/guestOrderList/${orderNumber}`;
+    window.location.href = `/guest/guestOrderList/${orderNumber}`;
   } catch (err) {
     console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`);
