@@ -1,4 +1,4 @@
-import * as Api from "/api.js";
+import * as Api from "../../api.js";
 
 const passwordInput = document.querySelector("#passwordInput");
 const withdrawalBtn = document.querySelector("#withdrawal");

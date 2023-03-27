@@ -2,9 +2,9 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/views/notice/addNotice/addNotice.js",
+  entry: "./src/views/mypage/mypageWithdrawal/mypageWithdrawal.js",
   output: {
-    filename: "addNotice_bundle.js",
-    path: path.resolve(__dirname, "./src/views/notice/addNotice"),
+    filename: "mypageWithdrawal_bundle.js",
+    path: path.resolve(__dirname, "./src/views/mypage/mypageWithdrawal"),
   },
 };
