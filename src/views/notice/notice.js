@@ -5,6 +5,7 @@ header();
 footer();
 
 const postList = document.querySelector(".board-post");
+const addNoitce = document.querySelector('.on')
 
 insertPostElement();
 
@@ -29,6 +30,7 @@ async function insertPostElement() {
     const countText = document.getElementById(`Count_${postNo}`);
 
     postItem.addEventListener("click", moveToPost);
+    addNoitce.addEventListener("click", moveToUpdate);
     postItem.addEventListener("click", clickCount);
 
     async function clickCount(e) {
@@ -49,6 +51,9 @@ async function insertPostElement() {
 
     function moveToPost() {
       window.location.assign(`/notice/noticeDetail/${postNo}`);
+    }
+    function moveToUpdate() {
+      window.location.assign(`/notice/addNoitce/`);
     }
   }
 }
