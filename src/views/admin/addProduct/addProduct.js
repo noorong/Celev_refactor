@@ -1,6 +1,6 @@
 import { addImageToS3, getImageUrl } from "../../aws-s3.js";
 
-import * as Api from "/api.js";
+import * as Api from "../../api.js";
 import { checkLogin } from "../../utils/useful-functions.js";
 
 const submitBtn = document.querySelector("#category-button");
