@@ -1,6 +1,6 @@
-import * as Api from "/api.js";
-import { footer } from "../../utils/footer.js";
-import { header } from "../../utils/header.js";
+import * as Api from "../api.js";
+import { footer } from "../utils/footer.js";
+import { header } from "../utils/header.js";
 header();
 footer();
 

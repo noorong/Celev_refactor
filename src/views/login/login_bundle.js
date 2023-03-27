@@ -20,13 +20,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/views/guest/guest.js":
+/***/ "./src/views/login/login.js":
 /*!**********************************!*\
-  !*** ./src/views/guest/guest.js ***!
+  !*** ./src/views/login/login.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ \"./src/views/api.js\");\n/* harmony import */ var _utils_useful_functions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/useful-functions.js */ \"./src/views/utils/useful-functions.js\");\n\r\n\r\n\r\nconst emailInput = document.querySelector(\"#emailInput\");\r\nconst orderNumberInput = document.querySelector(\"#orderNumberInput\");\r\nconst submitButton = document.querySelector(\"#submitButton\");\r\n\r\naddAllEvents();\r\n\r\nfunction addAllEvents() {\r\n  submitButton.addEventListener(\"click\", handleSubmit);\r\n}\r\n\r\n//guest 로그인\r\nasync function handleSubmit(e) {\r\n  e.preventDefault();\r\n\r\n  const email = emailInput.value;\r\n  const orderNumber = orderNumberInput.value;\r\n\r\n  const isEmailValid = (0,_utils_useful_functions_js__WEBPACK_IMPORTED_MODULE_1__.validateEmail)(email);\r\n  if (!isEmailValid) {\r\n    (\"이메일 형식이 아닙니다.\");\r\n  }\r\n\r\n  try {\r\n    const data = { email, orderNumber };\r\n    const result = await _api__WEBPACK_IMPORTED_MODULE_0__.post(\"/api/guest\", data);\r\n\r\n    alert(\"게스트 로그인이 확인되었습니다.\");\r\n\r\n    window.location.href = `/guest/guestOrderList/${orderNumber}`;\r\n  } catch (err) {\r\n    console.error(err.stack);\r\n    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err}`);\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://shopping-mall/./src/views/guest/guest.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api.js */ \"./src/views/api.js\");\n/* harmony import */ var _utils_useful_functions_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/useful-functions.js */ \"./src/views/utils/useful-functions.js\");\n\r\n\r\n\r\n// 요소(element), input 혹은 상수\r\nconst emailInput = document.querySelector(\"#emailInput\");\r\nconst passwordInput = document.querySelector(\"#passwordInput\");\r\nconst submitButton = document.querySelector(\"#submitButton\");\r\n\r\naddAllElements();\r\naddAllEvents();\r\n\r\n// html에 요소를 추가하는 함수들을 묶어주어서 코드를 깔끔하게 하는 역할임.\r\nasync function addAllElements() {}\r\n\r\n// 여러 개의 addEventListener들을 묶어주어서 코드를 깔끔하게 하는 역할임.\r\nfunction addAllEvents() {\r\n  submitButton.addEventListener(\"click\", handleSubmit);\r\n}\r\n\r\n// 로그인 진행\r\nasync function handleSubmit(e) {\r\n  e.preventDefault();\r\n\r\n  const email = emailInput.value;\r\n  const password = passwordInput.value;\r\n\r\n  // 잘 입력했는지 확인\r\n  const isEmailValid = (0,_utils_useful_functions_js__WEBPACK_IMPORTED_MODULE_1__.validateEmail)(email);\r\n  const isPasswordValid = password.length >= 4;\r\n\r\n  if (!isEmailValid || !isPasswordValid) {\r\n    return alert(\r\n      \"비밀번호가 4글자 이상인지, 이메일 형태가 맞는지 확인해 주세요.\"\r\n    );\r\n  }\r\n\r\n  // 로그인 api 요청\r\n  try {\r\n    const data = { email, password };\r\n\r\n    const result = await _api_js__WEBPACK_IMPORTED_MODULE_0__.post(\"/api/login\", data);\r\n    const token = result.token;\r\n\r\n    // 로그인 성공, 토큰을 세션 스토리지에 저장\r\n    // 물론 다른 스토리지여도 됨\r\n    sessionStorage.setItem(\"token\", token);\r\n\r\n    alert(`정상적으로 로그인되었습니다.`);\r\n\r\n    // 로그인 성공\r\n\r\n    // 기본 페이지로 이동\r\n    window.location.href = \"/\";\r\n  } catch (err) {\r\n    console.error(err.stack);\r\n    alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://shopping-mall/./src/views/login/login.js?");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/views/guest/guest.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/views/login/login.js");
 /******/ 	
 /******/ })()
 ;

@@ -1,5 +1,5 @@
-import * as Api from "/api.js";
-import { checkAdmin } from "../../../utils/useful-functions.js";
+import * as Api from "../../api.js";
+import { checkAdmin } from "../../utils/useful-functions.js";
 
 const updateBtn = document.querySelector("#update-button");
 const categoryInput = document.querySelector("#categoryInput");
