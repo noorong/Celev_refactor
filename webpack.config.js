@@ -2,9 +2,12 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/views/mypage/mypageWithdrawal/mypageWithdrawal.js",
+  entry: "./src/views/mypage/mypageReview/mypageReview.js",
   output: {
-    filename: "mypageWithdrawal_bundle.js",
-    path: path.resolve(__dirname, "./src/views/mypage/mypageWithdrawal"),
+    filename: "mypageReview_bundle.js",
+    path: path.resolve(__dirname, "./src/views/mypage/mypageReview"),
+  },
+  experiments: {
+    topLevelAwait: true,
   },
 };
